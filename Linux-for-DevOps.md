@@ -38,6 +38,8 @@
      - Suse Based Systems
      - Arch Based Systems
 - [Command Line | Awesome Linux commands]()
+   - Essential Basic and Advance Linux Commands
+ 
 - [Network Management and Troubleshooting]()
    - Telnet
    - Ping(ICMP)
@@ -48,8 +50,9 @@
    - Netstat
 - [File and Directory Management]()
    - Absolute vs. relative paths
+   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
    - Text Processing
-- [Linux Compression]()
+- [Linux Archiving & Compression]()
    - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress
 - [File Permission and Ownership]()
    - File/Directory Permission and Ownership
@@ -103,17 +106,7 @@
    - HaProxy LB
    - SSH Server with Key Based authentication
    - SSL & TLS - Let's Encrypt
-
-
-All important Linux commands
-
-Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
-. Walking through the File System (pwd, cd, tree)
-The LS Command in-depth (ls)
-Bash/Shell Scripting
-
-
-
+- [Bash/Shell Scripting]()
 
 
 
