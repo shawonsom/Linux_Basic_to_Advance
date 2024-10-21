@@ -6,9 +6,10 @@
   - Linux Kernel, Boot Sequence, Kernel Space and User Space | How Linux works
 - [2.Setting up the environment (installing both Ubuntu and Redhat)](#2setting-up-the-environment-installing-both-ubuntu-and-redhat)
   - Graphical vs Minimal Mode
-  - Linux - Networking
+  - Networking
   - Connect/Login to Linux system | Login Client
   - Introduction to Shell
+  - Hostfile
   - [Common commands to check system details after installing and accessing a server](#common-commands-to-check-system-details-after-installing-and-accessing-a-server)
 - [3.Administering Users and Groups](#3Administering-Users-and-Groups)
   - Creating and Managing a user
@@ -18,51 +19,56 @@
   - Creating, changing, and removing user accounts (useradd, usermod, userdel)
   - Sudo Group,Permissions and sudousers file for a user
   - Group management (groupadd, groupdel, groupmod)
-  - User account monitoring (whoami, who am i, who, id, w, uptime, last)
-    
+  - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
 - Packages and Software Management
- -
  - Package Management Distribution - rpm,yum,dpkg,apt and apt-get
  - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
  - Repository File | /etc/apt/sources.list
  - Installation new applications using `apt`
  - Install manually downloaded packages with example
+ - Services like HTTP, SSH
  - Key Linux Package Management Commands
    - Ubuntu Based Systems
+          - Searching through the repositories to find new apps
+          - Installing packages that are not in the repository
+          - Keeping programs updated
    - Fedora/RHEL 8 Based Systems
    - Suse Based Systems
    - Arch Based Systems
- - Searching through the repositories to find new apps
- - Installing packages that are not in the repository
- - Keeping programs updated
- 
+
+ - [Networking]()
+   - Telnet
+   - Ping
+   - Traceroute
+   - Curl
+   - Port Numbers
+ - [File Permissions]()
+   - File/Directory Permission and Ownership
+   - Default and Maximum File/Directory Permission
+   - File/Directory Types
+   - File/Directory Link Types
+   - File Permission with Umask
+   - Special permissions - Setuid, Setgid, and Sticky Bit
+   - Advanced File Permission(ACL)
+ - [Process Management]()
+   - Terminal Multiplexer(nohup,tmux,PM2)
+   - 
+ - [Managing Disks and Partitioning]
+ - [Securing and Hardening]
+   - Iptables | Netfilter | NFTables FirewallD
+   - Security
+ - [Deploying LAMP/LEMP and Websites]
+ - [System Performance & Tuning Tools]()
 
 
-
-- [System Performance & Tuning Tools]()
-
-- Linux – Managing disks and partitioning
-- Linux – Shell, permissions, tools, networking, processes
-- Web servers setup (LAMP & LEMP)
-- Deploying websites
-- Securing Linux Systems
 
 All important Linux commands
 
 Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 Absolute vs. relative paths. Walking through the File System (pwd, cd, tree)
 The LS Command in-depth (ls)
-
-The Linux filesystem
-File permissions
-Process management
-User account management
-Software management
-Networking in Linux
-System administration
 Bash Scripting
-Iptables/Netfilter Firewall
-Linux Security
+
 
 
 
@@ -74,9 +80,10 @@ Linux Security
 
 ## 🚀2.Setting up the environment (installing both Ubuntu and Redhat)
 ### Graphical vs Minimal Mode
-### Linux - Networking
+### Networking
 ### Connect/Login to Linux system | Login Client
 ### Introduction to Shell
+### - Hostfile
 ### Common commands to check system details after installing and accessing a server.
 - Check Hostname - `hostname` | `hostnamectl` | `hostnamectl set-hostname msi-linux.com`
 - Check OS Version - `cat /etc/os-release`
