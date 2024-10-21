@@ -43,9 +43,10 @@
    - Traceroute
    - Curl
    - Port Numbers
-- File and Directory Management
-- Text Processing
-- 
+- [File and Directory Management]()
+   - Text Processing
+- [Linux Compression]()
+   - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress
 - [File Permission and Ownership]()
    - File/Directory Permission and Ownership
    - Default and Maximum File/Directory Permission
@@ -70,9 +71,16 @@
    - AppArmor
    - TCP Wrapper
    - SeLinux
+   - Fail2ban
 - [Deploying LAMP/LEMP and Websites]
 - [System Performance & Tuning Tools]()
-
+- [Server Deployment]()
+   - NTP Server and Client
+   - NFS Server and Client
+   - HTTP Server with Virtual Hosting
+   - MariaDB Server
+   - SSH Server with Key Based authentication
+   - SSL & TLS - Let's Encrypt
 
 
 All important Linux commands
