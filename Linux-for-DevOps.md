@@ -2,21 +2,27 @@
   - What is Operating System
   - History of Linux | Unix
   - Importance of Linux
-  - Linux Filesystem Hierarchy
-- Setting up the environment (installing both Ubuntu and Redhat)
+  - Linux Filesystem and directory Hierarchy
+  - Linux Kernel, Boot Sequence, Kernel Space and User Space
+- [Setting up the environment (installing both Ubuntu and Redhat)](#setting-up-the-environment-installing-both-ubuntu-and-redhat)
+  - Graphical vs Minimal Mode
   - Linux - Networking
   - Connect/Login to Linux system | Login Client
-- Linux - User Management
+  - Introduction to Shell
+  - Package Management
+  - Package Management Distribution
+  - RPM and YUM, DPKG and APT
+  - APT Vs APT GET
+- [Administering Users and Groups](#Administering-Users-and-Groups)
   - Creating and Managing a user
   - adduser | useradd
-  - User accounts management
   - Understanding passwd and shadow files
   - Understanding Linux Groups (groups, id)
   - Creating, changing, and removing user accounts (useradd, usermod, userdel)
+  - Sudo Group,Permissions and sudousers file for a user
   - Group management (groupadd, groupdel, groupmod)
   - User account monitoring (whoami, who am i, who, id, w, uptime, last)
 
-# Setting up the environment (installing both Ubuntu and Redhat)
 
 
 Linux – Software management
