@@ -1,6 +1,13 @@
-Introduction to Linux
-History of Linux | Unix 
-Setting up the environment (installing both Ubuntu and Redhat)
+- [Introduction to Linux](#Introduction-to-Linux)
+  - What is Operating System
+  - History of Linux | Unix
+  - Importance of Linux
+  - Linux Filesystem Hierarchy
+  - 
+
+- Setting up the environment (installing both Ubuntu and Redhat)
+
+
 Linux - Networking
 Linux - User Management
 Linux – Software management
