@@ -16,7 +16,7 @@
   - Group management (groupadd, groupdel, groupmod)
   - User account monitoring (whoami, who am i, who, id, w, uptime, last)
 
-
+# Setting up the environment (installing both Ubuntu and Redhat)
 
 
 Linux – Software management
