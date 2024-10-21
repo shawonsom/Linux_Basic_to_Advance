@@ -1,10 +1,10 @@
-- [Introduction to Linux](#Introduction-to-Linux)
+- [1.Introduction to Linux](#1Introduction-to-Linux)
   - What is Operating System
   - History of Linux | Unix
   - Importance of Linux
   - Linux Filesystem and directory Hierarchy
   - Linux Kernel, Boot Sequence, Kernel Space and User Space | How Linux works
-- [2.Setting up the environment (installing both Ubuntu and Redhat)](#setting-up-the-environment-installing-both-ubuntu-and-redhat)
+- [2.Setting up the environment (installing both Ubuntu and Redhat)](#2setting-up-the-environment-installing-both-ubuntu-and-redhat)
   - Graphical vs Minimal Mode
   - Linux - Networking
   - Connect/Login to Linux system | Login Client
