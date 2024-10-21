@@ -4,12 +4,12 @@
   - Importance of Linux
   - Linux Filesystem and directory Hierarchy
   - Linux Kernel, Boot Sequence, Kernel Space and User Space | How Linux works
-- [Setting up the environment (installing both Ubuntu and Redhat)](#setting-up-the-environment-installing-both-ubuntu-and-redhat)
+- [2.Setting up the environment (installing both Ubuntu and Redhat)](#setting-up-the-environment-installing-both-ubuntu-and-redhat)
   - Graphical vs Minimal Mode
   - Linux - Networking
   - Connect/Login to Linux system | Login Client
   - Introduction to Shell
-  - Common commands to check system details after installing and accessing a server.
+  - [Common commands to check system details after installing and accessing a server](#common-commands-to-check-system-details-after-installing-and-accessing-a-server)
   - Package Management
   - Package Management Distribution
   - RPM and YUM, DPKG and APT
@@ -54,19 +54,7 @@ Linux Security
 
 
 
-
-
-## Setting up the environment (installing both Ubuntu and Redhat)
-  - Graphical vs Minimal Mode
-  - Linux - Networking
-  - Connect/Login to Linux system | Login Client
-  - Introduction to Shell
-  - Common commands to check system details after installing and accessing a server.
-  - Package Management
-  - Package Management Distribution
-  - RPM and YUM, DPKG and APT
-  - APT Vs APT GET
-
+## 🚀2.Setting up the environment (installing both Ubuntu and Redhat)
 ### Graphical vs Minimal Mode
 ### Linux - Networking
 ### Connect/Login to Linux system | Login Client
@@ -92,9 +80,6 @@ Linux Security
 - Check System Time and Timezone - `timedatectl`
 - Check Installed Packages - `dpkg -l`
 - Check System Boot Time - `who -b`
-
-
-
 ### Package Management
 ### Package Management Distribution
 ### RPM and YUM, DPKG and APT
