@@ -22,7 +22,7 @@
   - Sudo Group,Permissions and sudousers file for a user
   - Group management (groupadd, groupdel, groupmod)
   - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
-- Packages and Software Management
+- [Packages and Software Management]()
   - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
   - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
   - Repository File | /etc/apt/sources.list
@@ -37,12 +37,13 @@
      - Fedora/RHEL 8 Based Systems
      - Suse Based Systems
      - Arch Based Systems
-- [Network Management]()
+- [Network Management and Troubleshooting]()
    - Telnet
-   - Ping
+   - Ping(ICMP)
    - Traceroute
    - Curl
-   - Port Numbers
+   - Packet Analysis
+   - Netstat
 - [File and Directory Management]()
    - Text Processing
 - [Linux Compression]()
@@ -59,6 +60,22 @@
    - Terminal Multiplexer(nohup,tmux,PM2)
    - Working with Systemd
    - Kernel Update/Upgrade
+   - Signal process
+   - kill (Terminate)
+   - Process Termination
+   - top
+   - htop
+   - fuser
+   - lsof
+   - ps m
+   - uptime
+   - iostat
+   - vmstat
+   - watch
+   - ps aux
+   - ls /proc
+   - cat /proc/12345/status
+
 - [Linux Job Scheduling with at and Crond]()
    - [Managing Disks and Partitioning]
    - Partition Management
