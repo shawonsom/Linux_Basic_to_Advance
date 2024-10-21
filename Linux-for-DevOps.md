@@ -4,12 +4,14 @@
   - Importance of Linux
   - Linux Filesystem and directory Hierarchy
   - Linux Kernel, Boot Sequence, Kernel Space and User Space | How Linux works
+  - Reset Root Password
 - [2.Setting up the environment (installing both Ubuntu and Redhat)](#2setting-up-the-environment-installing-both-ubuntu-and-redhat)
   - Graphical vs Minimal Mode
   - Networking
   - Connect/Login to Linux system | Login Client
   - Introduction to Shell
   - Hostfile
+  - Text Editor - vim | nano | vi | emacs
   - [Common commands to check system details after installing and accessing a server](#common-commands-to-check-system-details-after-installing-and-accessing-a-server)
 - [3.Administering Users and Groups](#3Administering-Users-and-Groups)
   - Creating and Managing a user
@@ -35,13 +37,16 @@
      - Fedora/RHEL 8 Based Systems
      - Suse Based Systems
      - Arch Based Systems
-- [Networking]()
+- [Network Management]()
    - Telnet
    - Ping
    - Traceroute
    - Curl
    - Port Numbers
-- [File Permissions]()
+- File and Directory Management
+- Text Processing
+- 
+- [File Permission and Ownership]()
    - File/Directory Permission and Ownership
    - Default and Maximum File/Directory Permission
    - File/Directory Types
@@ -51,11 +56,20 @@
    - Advanced File Permission(ACL)
 - [Process Management]()
    - Terminal Multiplexer(nohup,tmux,PM2)
-   - 
-- [Managing Disks and Partitioning]
+   - Working with Systemd
+   - Kernel Update/Upgrade
+- [Linux Job Scheduling with at and Crond]()
+   - [Managing Disks and Partitioning]
+   - Partition Management
+   - Logical Volume
+   - Swap Partition
+   - Mount and Unmount
 - [Securing and Hardening]
    - Iptables | Netfilter | NFTables FirewallD
    - Security
+   - AppArmor
+   - TCP Wrapper
+   - SeLinux
 - [Deploying LAMP/LEMP and Websites]
 - [System Performance & Tuning Tools]()
 
