@@ -21,27 +21,27 @@
   - Group management (groupadd, groupdel, groupmod)
   - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
 - Packages and Software Management
- - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
- - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
- - Repository File | /etc/apt/sources.list
- - Installation new applications using `apt`
- - Install manually downloaded packages with example
- - Services like HTTP, SSH
- - Key Linux Package Management Commands
-   - Ubuntu Based Systems
-          - Searching through the repositories to find new apps
-          - Installing packages that are not in the repository
-          - Keeping programs updated
-   - Fedora/RHEL 8 Based Systems
-   - Suse Based Systems
-   - Arch Based Systems
- - [Networking]()
+  - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
+  - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
+  - Repository File | /etc/apt/sources.list
+  - Installation new applications using `apt`
+  - Install manually downloaded packages with example
+  - Services like HTTP, SSH
+  - Key Linux Package Management Commands
+     - Ubuntu Based Systems
+            - Searching through the repositories to find new apps
+            - Installing packages that are not in the repository
+            - Keeping programs updated
+     - Fedora/RHEL 8 Based Systems
+     - Suse Based Systems
+     - Arch Based Systems
+- [Networking]()
    - Telnet
    - Ping
    - Traceroute
    - Curl
    - Port Numbers
- - [File Permissions]()
+- [File Permissions]()
    - File/Directory Permission and Ownership
    - Default and Maximum File/Directory Permission
    - File/Directory Types
@@ -49,15 +49,15 @@
    - File Permission with Umask
    - Special permissions - Setuid, Setgid, and Sticky Bit
    - Advanced File Permission(ACL)
- - [Process Management]()
+- [Process Management]()
    - Terminal Multiplexer(nohup,tmux,PM2)
    - 
- - [Managing Disks and Partitioning]
- - [Securing and Hardening]
+- [Managing Disks and Partitioning]
+- [Securing and Hardening]
    - Iptables | Netfilter | NFTables FirewallD
    - Security
- - [Deploying LAMP/LEMP and Websites]
- - [System Performance & Tuning Tools]()
+- [Deploying LAMP/LEMP and Websites]
+- [System Performance & Tuning Tools]()
 
 
 
