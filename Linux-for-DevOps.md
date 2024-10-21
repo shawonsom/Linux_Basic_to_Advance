@@ -21,7 +21,7 @@
   - Group management (groupadd, groupdel, groupmod)
   - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
 - Packages and Software Management
- - Package Management Distribution - rpm,yum,dpkg,apt and apt-get
+ - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
  - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
  - Repository File | /etc/apt/sources.list
  - Installation new applications using `apt`
