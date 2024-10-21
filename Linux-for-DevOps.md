@@ -3,13 +3,22 @@
   - History of Linux | Unix
   - Importance of Linux
   - Linux Filesystem Hierarchy
-  - 
-
 - Setting up the environment (installing both Ubuntu and Redhat)
+  - Linux - Networking
+  - Connect/Login to Linux system | Login Client
+- Linux - User Management
+  - Creating and Managing a user
+  - adduser | useradd
+  - User accounts management
+  - Understanding passwd and shadow files
+  - Understanding Linux Groups (groups, id)
+  - Creating, changing, and removing user accounts (useradd, usermod, userdel)
+  - Group management (groupadd, groupdel, groupmod)
+  - User account monitoring (whoami, who am i, who, id, w, uptime, last)
 
 
-Linux - Networking
-Linux - User Management
+
+
 Linux – Software management
 Linux – Managing disks and partitioning
 Linux – Shell, permissions, tools, networking, processes
