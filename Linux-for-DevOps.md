@@ -6,7 +6,7 @@
   - Linux Kernel, Boot Sequence, Kernel Space and User Space | How Linux works
   - Reset Root Password
 - [2.Setting up the environment (installing both Ubuntu and Redhat)](#2setting-up-the-environment-installing-both-ubuntu-and-redhat)
-  - Graphical vs Minimal Mode
+  - Graphical vs Minimal Mode | Single User Mode vs Multi User Mode
   - Networking
   - Connect/Login to Linux system | Login Client
   - Introduction to Shell
@@ -37,14 +37,17 @@
      - Fedora/RHEL 8 Based Systems
      - Suse Based Systems
      - Arch Based Systems
+- [Command Line | Awesome Linux commands]()
 - [Network Management and Troubleshooting]()
    - Telnet
    - Ping(ICMP)
    - Traceroute
+   - Static Route IP
    - Curl
    - Packet Analysis
    - Netstat
 - [File and Directory Management]()
+   - Absolute vs. relative paths
    - Text Processing
 - [Linux Compression]()
    - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress
@@ -83,7 +86,7 @@
    - Swap Partition
    - Mount and Unmount
 - [Securing and Hardening]
-   - Iptables | Netfilter | NFTables FirewallD
+   - Iptables | Netfilter | NFTables | FirewallD | UFW
    - Security
    - AppArmor
    - TCP Wrapper
@@ -96,6 +99,8 @@
    - NFS Server and Client
    - HTTP Server with Virtual Hosting
    - MariaDB Server
+   - Nginx Web Server & Nginx Reverse Proxy
+   - HaProxy LB
    - SSH Server with Key Based authentication
    - SSL & TLS - Let's Encrypt
 
@@ -103,9 +108,9 @@
 All important Linux commands
 
 Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
-Absolute vs. relative paths. Walking through the File System (pwd, cd, tree)
+. Walking through the File System (pwd, cd, tree)
 The LS Command in-depth (ls)
-Bash Scripting
+Bash/Shell Scripting
 
 
 
