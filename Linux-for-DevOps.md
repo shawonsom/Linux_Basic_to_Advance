@@ -35,7 +35,6 @@
    - Fedora/RHEL 8 Based Systems
    - Suse Based Systems
    - Arch Based Systems
-
  - [Networking]()
    - Telnet
    - Ping
