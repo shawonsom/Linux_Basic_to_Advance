@@ -38,8 +38,7 @@
      - Suse Based Systems
      - Arch Based Systems
 - [Command Line | Awesome Linux commands]()
-   - Essential Basic and Advance Linux Commands
- 
+   - [Essential Basic and Advance Linux Commands](#Essential-Basic-and-Advance-Linux-Commands)
 - [Network Management and Troubleshooting]()
    - Telnet
    - Ping(ICMP)
@@ -48,12 +47,14 @@
    - Curl
    - Packet Analysis
    - Netstat
+   - ifconfig
 - [File and Directory Management]()
    - Absolute vs. relative paths
    - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
    - Text Processing
 - [Linux Archiving & Compression]()
    - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress
+   - gzip, gunzip, tar, 
 - [File Permission and Ownership]()
    - File/Directory Permission and Ownership
    - Default and Maximum File/Directory Permission
@@ -81,7 +82,8 @@
    - ps aux
    - ls /proc
    - cat /proc/12345/status
-
+   - ps -ef
+   - ip addr
 - [Linux Job Scheduling with at and Crond]()
    - [Managing Disks and Partitioning]
    - Partition Management
@@ -146,6 +148,7 @@
 ### RPM and YUM, DPKG and APT
 ### APT Vs APT GET
 
-
-
+## Command Line | Awesome Linux commands
+### Essential Basic and Advance Linux Commands
+-  [List Files and Directories in Linux - `ls`](https://www.tecmint.com/ls-command-in-linux/)
 
