@@ -151,4 +151,6 @@
 ## Command Line | Awesome Linux commands
 ### Essential Basic and Advance Linux Commands
 -  [List Files and Directories in Linux - `ls`](https://www.tecmint.com/ls-command-in-linux/)
+-  <a href="https://www.tecmint.com/ls-command-in-linux/" target="_blank">List Files and Directories in Linux - `ls`</a>
+
 
