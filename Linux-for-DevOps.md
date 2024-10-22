@@ -119,7 +119,7 @@
 ### Networking
 ### Connect/Login to Linux system | Login Client
 ### Introduction to Shell
-### - Hostfile
+### Hostfile
 ### Common commands to check system details after installing and accessing a server.
 - Check Hostname - `hostname` | `hostnamectl` | `hostnamectl set-hostname msi-linux.com`
 - Check OS Version - `cat /etc/os-release`
