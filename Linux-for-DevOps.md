@@ -165,8 +165,8 @@
 
 
 ## 🚀6.File and Directory Management
- - ### 🔴Basic File and Directory Operations
-    - ### ✅Creating, Deleting, Moving, and Copying Files/Directories
+ - ### 🌟Basic File and Directory Operations
+    - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
     - [ ] Commands
     - [ ] `ls` - list files and directories
       - [ ] `-a` for listing hidden files
@@ -187,10 +187,20 @@
     - [ ] `cp` - copy a file
       - [ ] `-r` for recursive (copy a directory)
 
-  - File/Directory Types
-  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
-  - Understanding Paths - `Absolute` vs. relative paths`
-  - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
+ - ### 🌟File/Directory Types
+    - [ ] Regular
+   You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
+       - [ ] `ls -l`
+       - [ ] `-rw-r--r--  1 user user  1048576 Oct 21 14:34 example.txt`
+
+    - [ ] Directory
+    - [ ] Socket
+    - [ ] Block
+    - [ ] Link
+   
+ - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
+ - Understanding Paths - `Absolute` vs. relative paths`
+ - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 - [7.File Permission and Ownership]()
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
