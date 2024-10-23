@@ -199,12 +199,18 @@
        **Text files:** `example.txt`\
        **Binary files:** `/usr/bin/bash`\
        **Executable scripts:** `script.sh`
-    - [ ] **Directory `d`**
-    - [ ] **Block `b`**
-    - [ ] **Socket `s`**
-    - [ ] **Link `l`**
-    - [ ] **Hidden file/dir `.`**
-    - [ ] **Process `p`**
+    - [ ] **Directory -`d`**\
+   Directories can be identified by a `d` at the beginning of the permission string when using `ls -l`
+      - [ ] `mkdir /home/msi/devops/linux -p`
+      - [ ] `ls -l`
+      - [ ] **d**rwxr-xr-x  2 msi msi  4096 Oct 21 14:40 linux
+      **Home directory: /home/user**\
+      **System configuration directories: /etc, /var**
+    - [ ] **Block -`b`**
+    - [ ] **Socket -`s`**
+    - [ ] **Link -`l`**
+    - [ ] **Hidden file/dir -`.`**
+    - [ ] **Process -`p`**
    
  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
  - Understanding Paths - `Absolute` vs. relative paths`
