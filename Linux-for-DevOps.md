@@ -191,6 +191,12 @@
       - [ ] `-r` for recursive (copy a directory)
 
  - ### 🌟File/Directory Types
+    🌱Regular\
+    🌱Directory\
+    🌱Socket\
+    🌱Block\
+    🌱Symbolic link\
+    🌱Hidden file/dir
     - [ ] **🌱Regular `-`**\
    You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
        - [ ] `touch example.txt`
@@ -214,7 +220,7 @@
    Block device files are identified by a **`b`** in the permission string from the `ls -l` command.
       - [ ] `ls -l /dev/sda`
       - [ ] `brw-rw----  1 root disk 8, 0 Oct 21 14:44 /dev/sda`
-    - [ ] **🌱Link -`l`**\
+    - [ ] **🌱Symbolic link -`l`**\
    Symbolic links are indicated by an `l` at the beginning of the permission string when using `ls -l`
       - [ ] `ln -s /path/to/original /path/to/link`
       - [ ] `ls -l`
