@@ -188,7 +188,7 @@
       - [ ] `-r` for recursive (copy a directory)
 
  - ### 🌟File/Directory Types
-    - [ ] **Regular**\
+    - [-] **Regular**\
    You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
        - [ ] `touch example.txt`
        - [ ] `ls -l`
@@ -196,10 +196,13 @@
        **Text files:** `example.txt`\
        **Binary files:** `/usr/bin/bash`\
        **Executable scripts:** `script.sh`
-    - [ ] Directory
+    - [d] Directory
+    - [b] Device
     - [ ] Socket
     - [ ] Block
     - [ ] Link
+    - [ ] hidden file/dir
+    - [ ] Process
    
  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
  - Understanding Paths - `Absolute` vs. relative paths`
