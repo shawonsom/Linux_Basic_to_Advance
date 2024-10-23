@@ -48,7 +48,7 @@
   - ifconfig
   - tcpdump
   - mtr
-- [6.File and Directory Management]()
+- [6.File and Directory Management](#6file-and-directory-management)
   - Basic File and Directory Operations
     - Creating, Deleting, Moving, and Copying Files/Directories
   - File/Directory Types
@@ -188,7 +188,7 @@
       - [ ] `-r` for recursive (copy a directory)
 
  - ### 🌟File/Directory Types
-    - [ ] Regular
+    - [ ] **Regular**\
    You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
        - [ ] `ls -l`
        - [ ] `-rw-r--r--  1 user user  1048576 Oct 21 14:34 example.txt`
