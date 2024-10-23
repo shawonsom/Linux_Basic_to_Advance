@@ -167,7 +167,7 @@
 
 <img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
 
- - ### 🌟Basic File and Directory Operations
+ - ### 🌟[Basic File and Directory Operations]()
     - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
     - [ ] Commands
     - [ ] `ls` - list files and directories
@@ -189,7 +189,7 @@
     - [ ] `cp` - copy a file
       - [ ] `-r` for recursive (copy a directory)
 
- - ### 🌟File/Directory Types
+ - ### 🌟[File/Directory Types]()
     🌱Regular\
     🌱Directory\
     🌱Socket\
@@ -228,9 +228,27 @@
    Files or directories that begin with a dot `.` are hidden from normal directory listings.
       - [ ] `ls -la /home/msi/`
       - [ ] `-rw-r--r-- 1 msi  msi  3771 Oct 19 21:56 .bashrc`
- - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
- - Understanding Paths - `Absolute` vs. relative paths`
- - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
+ - ### [🌟File/Directory Link Types - Hard Links vs. Soft Links]()
+
+| **Feature**                | **Hard Link**                             | **Soft Link (Symlink)**                                |
+|----------------------------|-------------------------------------------|--------------------------------------------------------|
+| **Inode**                  | Shares same inode as original file        | Has its own inode, pointing to the target              |
+| **File Type**              | Only for files, not directories           | Can link to both files and directories                 |
+| **File System**            | Must be on the same filesystem            | Can link across filesystems                            |
+| **Original File Deleted**  | No effect; hard link still accesses data  | Symlink breaks and becomes a "dangling link"           |
+| **Cross-Filesystem Links** | Not possible                              | Possible                                               |
+| **Directory Linking**      | Not allowed                               | Allowed                                                |
+
+- View Symlink Path - ls -ln
+- Creating a Hard Link - `ln original.txt hardlink.txt`
+- Creating a Soft Link (Symlink) - `ln -s /path/to/original.txt symlink.txt`
+- Checking Inode Numbers - `ls -li original.txt hardlink.txt`
+- Removing a Soft or Hard Link - `unlink symlink.txt
+
+
+   
+ - ### [🌟Understanding Paths - `Absolute` vs. relative paths`]()
+ - ### [🌟Understanding file timestamps: atime, mtime, ctime (stat, touch, date)]()
 - [7.File Permission and Ownership]()
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
