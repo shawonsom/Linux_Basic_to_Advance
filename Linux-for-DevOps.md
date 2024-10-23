@@ -190,9 +190,12 @@
  - ### 🌟File/Directory Types
     - [ ] **Regular**\
    You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
+       - [ ] `touch example.txt`
        - [ ] `ls -l`
        - [ ] `-rw-r--r--  1 user user  1048576 Oct 21 14:34 example.txt`
-
+       **Text files:** `example.txt`\
+       **Binary files:** `/usr/bin/bash`\
+       **Executable scripts:** `script.sh`
     - [ ] Directory
     - [ ] Socket
     - [ ] Block
