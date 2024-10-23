@@ -166,7 +166,7 @@
 
 ## 🚀6.File and Directory Management
 
-< src img="https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27" alt="Signature" height="400" width="800"/>
+<src img="https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27" alt="Signature" height="400" width="800"/>
 
  - ### 🌟Basic File and Directory Operations
     - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
