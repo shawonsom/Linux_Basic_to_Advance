@@ -49,10 +49,9 @@
   - tcpdump
   - mtr
 - [6.File and Directory Management](#6file-and-directory-management)
-  - Basic File and Directory Operations
-    - Creating, Deleting, Moving, and Copying Files/Directories
-  - File/Directory Types
-  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
+  - [Basic File and Directory Operations](#Basic-File-and-Directory-Operations)
+  - [File/Directory Types](#filedirectory-types)
+  - File/Directory Link Types - Hard Links vs. Soft Links
   - Understanding Paths - `Absolute` vs. relative paths`
   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 - [7.File Permission and Ownership]()
