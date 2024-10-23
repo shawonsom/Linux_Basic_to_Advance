@@ -165,6 +165,9 @@
 
 
 ## 🚀6.File and Directory Management
+
+< src img=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 alt="Signature" height="400" width="800"/>
+
  - ### 🌟Basic File and Directory Operations
     - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
     - [ ] Commands
@@ -188,7 +191,7 @@
       - [ ] `-r` for recursive (copy a directory)
 
  - ### 🌟File/Directory Types
-    - [-] **Regular**\
+    - [ ] **Regular `-`**\
    You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
        - [ ] `touch example.txt`
        - [ ] `ls -l`
@@ -196,13 +199,12 @@
        **Text files:** `example.txt`\
        **Binary files:** `/usr/bin/bash`\
        **Executable scripts:** `script.sh`
-    - [d] Directory
-    - [b] Device
-    - [ ] Socket
-    - [ ] Block
-    - [ ] Link
-    - [ ] hidden file/dir
-    - [ ] Process
+    - [ ] **Directory `d`**
+    - [ ] **Block `b`**
+    - [ ] **Socket `s`**
+    - [ ] **Link `l`**
+    - [ ] **Hidden file/dir `.`**
+    - [ ] **Process `p`**
    
  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
  - Understanding Paths - `Absolute` vs. relative paths`
