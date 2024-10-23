@@ -22,7 +22,7 @@
   - Sudo Group,Permissions and sudousers file for a user
   - Group management (groupadd, groupdel, groupmod)
   - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
-- [Packages and Software Management]()
+- [4.Packages and Software Management]()
   - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
   - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
   - Repository File | /etc/apt/sources.list
@@ -37,69 +37,84 @@
      - Fedora/RHEL 8 Based Systems
      - Suse Based Systems
      - Arch Based Systems
-- [Command Line | Awesome Linux commands]()
-   - [Essential Basic and Advance Linux Commands](#Essential-Basic-and-Advance-Linux-Commands)
-- [Network Management and Troubleshooting]()
-   - Telnet
-   - Ping(ICMP)
-   - Traceroute
-   - Static Route IP
-   - Curl
-   - Packet Analysis
-   - Netstat
-   - ifconfig
-- [File and Directory Management]()
-   - Absolute vs. relative paths
-   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
-   - Text Processing
-- [Linux Archiving & Compression]()
-   - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress
-   - gzip, gunzip, tar, 
-- [File Permission and Ownership]()
-   - File/Directory Permission and Ownership
-   - Default and Maximum File/Directory Permission
-   - File/Directory Types
-   - File/Directory Link Types
-   - File Permission with Umask
-   - Special permissions - Setuid, Setgid, and Sticky Bit
-   - Advanced File Permission(ACL)
-- [Process Management]()
-   - Terminal Multiplexer(nohup,tmux,PM2)
-   - Working with Systemd
-   - Kernel Update/Upgrade
-   - Signal process
-   - kill (Terminate)
-   - Process Termination
-   - top
-   - htop
-   - fuser
-   - lsof
-   - ps m
-   - uptime
-   - iostat
-   - vmstat
-   - watch
-   - ps aux
-   - ls /proc
-   - cat /proc/12345/status
-   - ps -ef
-   - ip addr
-- [Linux Job Scheduling with at and Crond]()
-   - [Managing Disks and Partitioning]
-   - Partition Management
-   - Logical Volume
-   - Swap Partition
-   - Mount and Unmount
-- [Securing and Hardening]
+- [5.Network Management and Troubleshooting]()
+  - Telnet
+  - Ping(ICMP)
+  - Traceroute
+  - Static Route IP
+  - Curl
+  - Packet Analysis
+  - Netstat
+  - ifconfig
+  - tcpdump
+  - mtr
+     
+- [6.File and Directory Management]()
+  - Understanding Paths - `Absolute` vs. relative paths`
+  - Basic File and Directory Operations
+    - Creating, Deleting, Moving, and Copying Files/Directories
+  - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
+  - File/Directory Types
+  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
+- [7.File Permission and Ownership]()
+  - Understanding File and Directory Permissions
+  - File/Directory Permission and Ownership
+  - Default and Maximum File/Directory Permission
+  - Advanced File Permission Concepts
+    - File Permission with Umask
+    - Advanced File Permission with Access Control Lists (ACL)
+    - Special permissions - Setuid, Setgid, and Sticky Bit
+- [inux Archiving/Compression, Backup/Sync and Recovery]()
+  - Archiving & Compression
+     - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress | gzip, gunzip, tar,
+  - Backup & Sync
+  - Backup/Recovery
+- [10.Command Line | Awesome Linux commands]()
+  - [Essential Basic and Advance Linux Commands](#Essential-Basic-and-Advance-Linux-Commands)
+  - [Text Processing]
+     - Text Manipulation Commands 
+- [11.Process Management]()
+  - Terminal Multiplexer(nohup,tmux,PM2)
+  - Working with Systemd
+  - Kernel Update/Upgrade
+  - Signal process
+  - kill (Terminate)
+  - Process Termination
+  - top
+  - htop
+  - fuser
+  - lsof
+  - ps m
+  - uptime
+  - iostat
+  - vmstat
+  - watch
+  - ps aux
+  - ls /proc
+  - cat /proc/12345/status
+  - ps -ef
+  - ip addr
+  - nmon
+  - 
+- [12.Managing Disks and Partitioning]
+  - Device - SSD | HDD | USB | Nvme
+  - Filesystem Types - ext4, XFS | Block,File,Object
+  - Partition Management
+  - Logical Volume Managemnt(LVM)
+  - Swap Partition
+  - Mount and Unmount
+  - lspci
+  - sscsi 
+- [13.Securing and Hardening]
    - Iptables | Netfilter | NFTables | FirewallD | UFW
    - Security
    - AppArmor
    - TCP Wrapper
    - SeLinux
    - Fail2ban
-- [Deploying LAMP/LEMP and Websites]
-- [System Performance & Tuning Tools]()
-- [Server Deployment]()
+- [14.System Performance & Tuning Tools]()
+- 15.[Server Deployment]()
+   - [Deploying LAMP/LEMP and Websites]
    - NTP Server and Client
    - NFS Server and Client
    - HTTP Server with Virtual Hosting
@@ -108,7 +123,8 @@
    - HaProxy LB
    - SSH Server with Key Based authentication
    - SSL & TLS - Let's Encrypt
-- [Bash/Shell Scripting]()
+- [16.System Monitoring & Cron Scheduling]()
+- [17.Bash/Shell Scripting]()
 
 
 
