@@ -48,14 +48,13 @@
   - ifconfig
   - tcpdump
   - mtr
-     
 - [6.File and Directory Management]()
-  - Understanding Paths - `Absolute` vs. relative paths`
   - Basic File and Directory Operations
     - Creating, Deleting, Moving, and Copying Files/Directories
-  - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
   - File/Directory Types
   - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
+  - Understanding Paths - `Absolute` vs. relative paths`
+  - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 - [7.File Permission and Ownership]()
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
@@ -64,16 +63,16 @@
     - File Permission with Umask
     - Advanced File Permission with Access Control Lists (ACL)
     - Special permissions - Setuid, Setgid, and Sticky Bit
-- [inux Archiving/Compression, Backup/Sync and Recovery]()
+- [8.inux Archiving/Compression, Backup/Sync and Recovery]()
   - Archiving & Compression
      - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress | gzip, gunzip, tar,
   - Backup & Sync
   - Backup/Recovery
-- [10.Command Line | Awesome Linux commands]()
+- [9.Command Line | Awesome Linux commands]()
   - [Essential Basic and Advance Linux Commands](#Essential-Basic-and-Advance-Linux-Commands)
   - [Text Processing]
      - Text Manipulation Commands 
-- [11.Process Management]()
+- [10.Process and Log Management]()
   - Terminal Multiplexer(nohup,tmux,PM2)
   - Working with Systemd
   - Kernel Update/Upgrade
@@ -96,7 +95,7 @@
   - ip addr
   - nmon
   - 
-- [12.Managing Disks and Partitioning]
+- [11.Managing Disks and Partitioning]
   - Device - SSD | HDD | USB | Nvme
   - Filesystem Types - ext4, XFS | Block,File,Object
   - Partition Management
@@ -105,15 +104,15 @@
   - Mount and Unmount
   - lspci
   - sscsi 
-- [13.Securing and Hardening]
+- [12.Securing and Hardening]
    - Iptables | Netfilter | NFTables | FirewallD | UFW
    - Security
    - AppArmor
    - TCP Wrapper
    - SeLinux
    - Fail2ban
-- [14.System Performance & Tuning Tools]()
-- 15.[Server Deployment]()
+- [13.System Performance & Tuning Tools]()
+- [14.Server Deployment]()
    - [Deploying LAMP/LEMP and Websites]
    - NTP Server and Client
    - NFS Server and Client
@@ -123,8 +122,8 @@
    - HaProxy LB
    - SSH Server with Key Based authentication
    - SSL & TLS - Let's Encrypt
-- [16.System Monitoring & Cron Scheduling]()
-- [17.Bash/Shell Scripting]()
+- [15.System Monitoring & Cron Scheduling]()
+- [16.Bash/Shell Scripting]()
 
 
 
@@ -164,9 +163,42 @@
 ### RPM and YUM, DPKG and APT
 ### APT Vs APT GET
 
-## Command Line | Awesome Linux commands
-### Essential Basic and Advance Linux Commands
--  [List Files and Directories in Linux - `ls`](https://www.tecmint.com/ls-command-in-linux/)
+
+## 🚀6.File and Directory Management
+ - ### 🔴Basic File and Directory Operations
+    - ### ✅Creating, Deleting, Moving, and Copying Files/Directories
+    - [ ] Commands
+    - [ ] `ls` - list files and directories
+      - [ ] `-a` for listing hidden files
+      - [ ] `-l` for list formt
+      - [ ] `-t` order by time
+      - [ ] `-F` better distinguish between regular files and directories
+    - [ ] `touch` - creating files (original intention is updating timestamp)
+      - [ ] nice to know: `touch file{1..5}`
+    - [ ] `rm` - remove files
+      - [ ] `-r` for recursive
+      - [ ] `-f` to force removal, no questions asked
+    - [ ] `mkdir` - create directories
+      - [ ] `-p` - for creating multiple nested directories
+    - [ ] `rmdir` - remove directories
+    - [ ] `echo` - display a line of text
+    - [ ] `cat` - concatenate files (common usage: read a file)
+    - [ ] `mv` - move files directories (also rename files and directories)
+    - [ ] `cp` - copy a file
+      - [ ] `-r` for recursive (copy a directory)
+
+  - File/Directory Types
+  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
+  - Understanding Paths - `Absolute` vs. relative paths`
+  - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
+- [7.File Permission and Ownership]()
+  - Understanding File and Directory Permissions
+  - File/Directory Permission and Ownership
+  - Default and Maximum File/Directory Permission
+  - Advanced File Permission Concepts
+    - File Permission with Umask
+    - Advanced File Permission with Access Control Lists (ACL)
+    - Special permissions - Setuid, Setgid, and Sticky Bit
 
 
 
