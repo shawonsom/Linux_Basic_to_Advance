@@ -191,7 +191,7 @@
       - [ ] `-r` for recursive (copy a directory)
 
  - ### 🌟File/Directory Types
-    - [ ] **Regular `-`**\
+    - [ ] **🌱Regular `-`**\
    You can identify regular files using ls -l, where the file type is indicated by a dash **(-)** at the beginning of the permission string
        - [ ] `touch example.txt`
        - [ ] `ls -l`
@@ -199,19 +199,30 @@
        **Text files:** `example.txt`\
        **Binary files:** `/usr/bin/bash`\
        **Executable scripts:** `script.sh`
-    - [ ] **Directory -`d`**\
-   Directories can be identified by a `d` at the beginning of the permission string when using `ls -l`
+    - [ ] **🌱Directory -`d`**\
+   Directories can be identified by a **`d`** at the beginning of the permission string when using `ls -l`
       - [ ] `mkdir /home/msi/devops/linux -p`
       - [ ] `ls -l`
-      - [ ] **d**rwxr-xr-x  2 msi msi  4096 Oct 21 14:40 linux
+      - [ ] `drwxr-xr-x  2 msi msi  4096 Oct 21 14:40 linux\`
       **Home directory: /home/user**\
       **System configuration directories: /etc, /var**
-    - [ ] **Block -`b`**
-    - [ ] **Socket -`s`**
-    - [ ] **Link -`l`**
-    - [ ] **Hidden file/dir -`.`**
-    - [ ] **Process -`p`**
-   
+    - [ ] **🌱Socket -`s`**
+   Socket files are identified by an **`s`** at the beginning of the permission string in `ls -l`.
+      - [ ] $ `ls -l /var/run/rpcbind.sock`
+      - [ ] `srw-rw----  1 root docker 0 Oct 21 14:43 /var/run/rpcbind.sock`
+    - [ ] **🌱Block -`s`**
+   Block device files are identified by a **`b`** in the permission string from the `ls -l` command.
+      - [ ] `ls -l /dev/sda`
+      - [ ] `brw-rw----  1 root disk 8, 0 Oct 21 14:44 /dev/sda`
+    - [ ] **🌱Link -`l`**
+   Symbolic links are indicated by an `l` at the beginning of the permission string when using `ls -l`
+      - [ ] `ln -s /path/to/original /path/to/link`
+      - [ ] `ls -l`
+      - [ ] `lrwxrwxrwx  1 user user 9 Oct 21 14:45 mylink -> example.txt`
+    - [ ] **🌱Hidden file/dir -`.`**
+   Files or directories that begin with a dot `.` are hidden from normal directory listings.
+      - [ ] `ls -la /home/msi/`
+      - [ ] `-rw-r--r-- 1 msi  msi  3771 Oct 19 21:56 .bashrc`
  - File/Directory Link Types - Hard Links vs. Soft Links (Symbolic Links)
  - Understanding Paths - `Absolute` vs. relative paths`
  - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
