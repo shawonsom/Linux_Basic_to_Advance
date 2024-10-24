@@ -294,10 +294,11 @@ The group designation can be used to grant teammates and/or collaborators shared
 
 - [ ] 🔴There are 2 ways to use the command -
 
-   - [ ] Absolute mode
-   - [ ] Symbolic mode
+   - [ ] **Absolute mode**
+   - [ ] **Symbolic mode**
 
- - [ ] 🧩Absolute mode\
+ - [ ] 🧩[Absolute mode]()
+
 In this mode, file permissions are not represented as characters but a three-digit octal number. The table below gives numbers for all for permissions types.
 
 | Number |	Permission Type	| Symbol |
@@ -311,11 +312,12 @@ In this mode, file permissions are not represented as characters but a three-dig
 | 6	| Read +Write |	rw- | 
 | 7	| Read + Write +Execute |	rwx | 
 
-**Command**\
+⚡**Command**\
 `chmod 764 samplefile`\
 `chmod 777 samplefile` - Assigning full permission to the file i.e. rwx to all
 
- - [ ] 🧩Symbolic Mode\
+ - [ ] 🧩[Symbolic Mode]()
+
 In the Absolute mode, you change permissions for all 3 owners. In the symbolic mode, you can modify permissions of a specific owner. It makes use of mathematical symbols to modify the file permissions.
 
 | Operator	| Description |
@@ -324,7 +326,7 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 |-	| Removes the permission|
 |=	|Sets the permission and overrides the permissions set earlier.|
 
-**Command**\
+⚡**Command**\
 `chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r)\
 `chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r) \
 `chmod u=rwx,g+wx,o-x samplefile`\
