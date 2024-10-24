@@ -254,8 +254,7 @@
     - mtime (Modification Time): Last time the file content was modified.
     - ctime (Change Time): Last time file metadata (e.g., permissions, ownership) was changed.
       - [ ] `stat filename`
-## 🚀[7.File Permission and Ownership]()
-  - ### File/Directory Permission and Ownership
+## 🚀[7.File/Dir Permission and Ownership]()
 Unix-like operating systems, such as Linux, running on shared high-performance computers use settings called permissions to determine who can access and modify the files and directories stored in their file systems. Each file and directory in a file system is assigned "owner" and "group" attributes.
 
 Most commonly, by default, the user who creates a file or directory is set as owner of that file or directory. When needed (for example, when a member of your research team leaves), the system's root administrator can change the user attribute for files and directories.
@@ -289,6 +288,7 @@ The group designation can be used to grant teammates and/or collaborators shared
 | x | To run a command/shell script | To enter into dir using 'cd' |
 
 * Using Binary References to Set permissions
+
 | Binary Reference | Meaning |
 |------------------|---------|
 | `4`              | Read    |
