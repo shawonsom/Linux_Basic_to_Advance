@@ -167,7 +167,6 @@
  - ### 🌟[Basic File and Directory Operations]()
     - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
       <img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
-    - [ ] Commands
     - [ ] `ls` - list files and directories
       - [ ] `-a` for listing hidden files
       - [ ] `-l` for list formt
@@ -256,8 +255,61 @@
     - ctime (Change Time): Last time file metadata (e.g., permissions, ownership) was changed.
       - [ ] `stat filename`
 ## 🚀[7.File Permission and Ownership]()
-  - Understanding File and Directory Permissions
-  - File/Directory Permission and Ownership
+  - ### File/Directory Permission and Ownership
+Unix-like operating systems, such as Linux, running on shared high-performance computers use settings called permissions to determine who can access and modify the files and directories stored in their file systems. Each file and directory in a file system is assigned "owner" and "group" attributes.
+
+Most commonly, by default, the user who creates a file or directory is set as owner of that file or directory. When needed (for example, when a member of your research team leaves), the system's root administrator can change the user attribute for files and directories.
+
+The group designation can be used to grant teammates and/or collaborators shared access to an owner's files and directories, and provides a convenient way to grant access to multiple users.
+
+* Permissions are applied on three levels:- 
+    * Owner or User level  
+    * Group level  
+    * Others level
+
+| Permission Group  | Meaning               |
+|-------------------|-----------------------|
+| `u`               | Owner                 |
+| `g`               | Group                 |
+| `o`               | Others                |
+| `a`               | All users             |
+
+
+* Access modes - Each file or directory has three basic permission types
+    * **r** - read only 
+    * **w** - write/edit/delete/append 
+    * **x** - execute/run a command 
+ 
+* Access modes are different on file and directory:- 
+
+| Permissions | Files           | Directory |
+|:-----: |:---         |:---   |
+| r | Open the file | 'ls' the contents of dir |
+| w | Write, edit, append, delete file | Add/Del/Rename contents of dir |
+| x | To run a command/shell script | To enter into dir using 'cd' |
+
+* Using Binary References to Set permissions
+| Binary Reference | Meaning |
+|------------------|---------|
+| `4`              | Read    |
+| `2`              | Write   |
+| `1`              | Execute |
+
+- 4 represents read permission.
+- 2 represents write permission.
+- 1 represents execute permission.
+
+For example, the octal value 764 can be broken down as follows:
+
+- 7 (Owner): Read (4) + Write (2) + Execute (1)
+- 6 (Group): Read (4) + Write (2)
+- 4 (Others): Read (4)
+
+
+
+
+
+
   - Default and Maximum File/Directory Permission
   - Advanced File Permission Concepts
     - File Permission with Umask
