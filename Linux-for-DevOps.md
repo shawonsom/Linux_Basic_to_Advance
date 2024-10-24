@@ -269,6 +269,7 @@ The group designation can be used to grant teammates and/or collaborators shared
     * Owner or User level  `u`
     * Group level  `g`
     * Others level `o` & `a` for all users
+![image](https://github.com/user-attachments/assets/f70e2ade-4081-4ec1-b1c3-bdf071984a6f)
 
 - [ ] 🔴Access modes - Each file or directory has three basic permission types
     * **r** - read only 
@@ -290,6 +291,8 @@ The group designation can be used to grant teammates and/or collaborators shared
 | `4`              | Read    |
 | `2`              | Write   |
 | `1`              | Execute |
+
+![image](https://github.com/user-attachments/assets/5f948b10-6aab-4a60-9bbc-45e82ab9020f)
 
 
 - [ ] 🔴There are 2 ways to use the command -
@@ -336,8 +339,29 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 `chmod go+wx samplefile` - Adding write and execute permissions from group and other\
 `chmod go=r samplefile` - Giving only read permission to group and other
 
-
-
+⚡**Random Command**\
+`ls -al /path/to/file/or/dir` 	   	- Check current permissions\
+`chmod 755 file-name` 			   	- Set owner have full permission group and other users has only read and execute permission.\
+`chmod u+x your_script.sh` 		   	- Set execute permission for the owner only.\
+`chmod u+rwx test-file` 			- Provide full access to owners\
+`chmod ugo+r-x test-file` 		   	- Provide Read access to Owners, groups and others, Remove execute access\
+`chmod o-rwx test-file` 			- Remove all access for others\
+`chmod u+rwx,g+r-x,o-rwx test-file` - Full access for Owner, add read , remove execute for group and no access for others\
+`chmod 777 test-file` 			   	- Provide full access to Owners, group and others\
+`chmod 660 test-file` 			   	- Read and Write access for Owner and Group, No access for others.\
+`chmod 750 test-file` 			   	- Full access for Owner, read and execute for group and no access for others.\
+`chown bob:developer test-file` 	- Changes owner to bob and group to developer\
+`chown bob andoid.apk` 			   	- Changes just the owner of the file to bob. Group unchanged\
+`chgrp android test-file` 		   	- Change the group for the test-file to the group called android\
+`chown -R msi:msi /dir` 		   	- Append -R for recursive syntax (include sub files and directories)\
+`chmod -u+r,g-w,o-rwx` 			   	- Multiple permissions at once\
+`chmod +rwx filename`\
+`chmod +x filename`\
+`chmod u-rwx`\						
+`chmod g-rwx`\
+`chmod o-rwx`\
+`chmod a-rwx`\
+`chmod 000`
 
 
   - Default and Maximum File/Directory Permission
