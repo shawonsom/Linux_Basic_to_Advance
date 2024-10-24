@@ -250,7 +250,7 @@
     - **Relative Path:** The path relative to the current working directory. Uses symbols like `.` (current directory) and `..` (parent directory).
       - [ ] Example: `Documents/file.txt` or `../file.txt`
 
-<img src=https://github.com/user-attachments/assets/a5bbe573-e116-4a0c-81f8-658a96962ad6  height="300" width="900"/>
+&nbsp;&nbsp;<img src=https://github.com/user-attachments/assets/a5bbe573-e116-4a0c-81f8-658a96962ad6  height="300" width="900"/>
 
  - ### [🌟Understanding file timestamps: atime, mtime, ctime (stat, touch, date)]()
     - atime (Access Time): Last time the file was read or accessed.
