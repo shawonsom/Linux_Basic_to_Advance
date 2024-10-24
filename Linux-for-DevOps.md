@@ -239,15 +239,21 @@
 | **Cross-Filesystem Links** | Not possible                              | Possible                                               |
 | **Directory Linking**      | Not allowed                               | Allowed                                                |
 
-- View Symlink Path - ls -ln
-- Creating a Hard Link - `ln original.txt hardlink.txt`
-- Creating a Soft Link (Symlink) - `ln -s /path/to/original.txt symlink.txt`
-- Checking Inode Numbers - `ls -li original.txt hardlink.txt`
-- Removing a Soft or Hard Link - `unlink symlink.txt
-
-
-   
+    - View Symlink Path - ls -ln
+    - Creating a Hard Link - `ln original.txt hardlink.txt`
+    - Creating a Soft Link (Symlink) - `ln -s /path/to/original.txt symlink.txt`
+    - Checking Inode Numbers - `ls -li original.txt hardlink.txt`
+    - Removing a Soft or Hard Link - `unlink symlink.txt
  - ### [🌟Understanding Paths - `Absolute` vs. relative paths`]()
+    - **Absolute Path:** The full path starting from the root directory **(/ in Linux, C:\ in Windows).** It doesn't depend on the current working directory.
+      - [ ] Example (Linux): `/home/user/file.txt`
+    - **Relative Path:** The path relative to the current working directory. Uses symbols like `.` (current directory) and `..` (parent directory).
+      - [ ] Example: `Documents/file.txt` or `../file.txt`
+
+
+
+
+
  - ### [🌟Understanding file timestamps: atime, mtime, ctime (stat, touch, date)]()
 - [7.File Permission and Ownership]()
   - Understanding File and Directory Permissions
