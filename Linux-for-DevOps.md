@@ -52,7 +52,7 @@
   - [Basic File and Directory Operations](#Basic-File-and-Directory-Operations)
   - [File/Directory Types](#filedirectory-types)
   - [File/Directory Link Types - Hard Links vs. Soft Links](#filedirectory-link-types---hard-links-vs-soft-links)
-  - Understanding Paths - `Absolute` vs. relative paths`
+  - [Understanding Paths - `Absolute` vs. relative paths](#understanding-paths---absolute-vs-relative-paths)
   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 - [7.File Permission and Ownership]()
   - Understanding File and Directory Permissions
