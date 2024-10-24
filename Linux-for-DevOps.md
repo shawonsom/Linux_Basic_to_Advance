@@ -261,25 +261,17 @@ Most commonly, by default, the user who creates a file or directory is set as ow
 
 The group designation can be used to grant teammates and/or collaborators shared access to an owner's files and directories, and provides a convenient way to grant access to multiple users.
 
-* Permissions are applied on three levels:- 
-    * Owner or User level  
-    * Group level  
-    * Others level
+- [ ] Permissions are applied on three levels:- 
+    * Owner or User level  `u`
+    * Group level  `g`
+    * Others level `o` & `a` for all users
 
-| Permission Group  | Meaning               |
-|-------------------|-----------------------|
-| `u`               | Owner                 |
-| `g`               | Group                 |
-| `o`               | Others                |
-| `a`               | All users             |
-
-
-* Access modes - Each file or directory has three basic permission types
+- [ ] Access modes - Each file or directory has three basic permission types
     * **r** - read only 
     * **w** - write/edit/delete/append 
     * **x** - execute/run a command 
  
-* Access modes are different on file and directory:- 
+- [ ] Access modes are different on file and directory:- 
 
 | Permissions | Files           | Directory |
 |:-----: |:---         |:---   |
@@ -287,7 +279,7 @@ The group designation can be used to grant teammates and/or collaborators shared
 | w | Write, edit, append, delete file | Add/Del/Rename contents of dir |
 | x | To run a command/shell script | To enter into dir using 'cd' |
 
-* Using Binary References to Set permissions
+- [ ] Using Binary References to Set permissions
 
 | Binary Reference | Meaning |
 |------------------|---------|
@@ -295,16 +287,47 @@ The group designation can be used to grant teammates and/or collaborators shared
 | `2`              | Write   |
 | `1`              | Execute |
 
-- 4 represents read permission.
-- 2 represents write permission.
-- 1 represents execute permission.
 
-For example, the octal value 764 can be broken down as follows:
+- [ ] There are 2 ways to use the command -
 
-- 7 (Owner): Read (4) + Write (2) + Execute (1)
-- 6 (Group): Read (4) + Write (2)
-- 4 (Others): Read (4)
+   - [ ] Absolute mode
+   - [ ] Symbolic mode
 
+ - [ ] Absolute mode
+
+* In this mode, file permissions are not represented as characters but a three-digit octal number. The table below gives numbers for all for permissions types.
+
+| Number |	Permission Type	| Symbol |
+| :----: |  :-----|  :----:|
+| 0	 |No Permission |	---  |
+| 1	| Execute	| --x |
+| 2	| Write	|-w- |
+| 3	| Execute + Write	|-wx |
+| 4	| Read	| r-- |
+| 5	| Read + Execute |	r-x |
+| 6	| Read +Write |	rw- | 
+| 7	| Read + Write +Execute |	rwx | 
+  
+`chmod 764 samplefile` 
+
+ - [ ] Symbolic Mode
+In the Absolute mode, you change permissions for all 3 owners. In the symbolic mode, you can modify permissions of a specific owner. It makes use of mathematical symbols to modify the file permissions.
+
+| Operator	| Description |
+| :---: |:--|
+|+ |	Adds a permission to a file or directory|
+|-	| Removes the permission|
+|=	|Sets the permission and overrides the permissions set earlier.|
+
+`chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r)\
+`chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r) \
+`chmod u=rwx,g+wx,o-x samplefile`\
+`chmod ugo=rwx <file name>`\
+`chmod ugo=rwx samplefile`\
+`chmod u+x samplefile` \
+`chmod go-wx samplefile` \
+`chmod go+wx samplefile` \
+`chmod go=r samplefile`\ 
 
 
 
