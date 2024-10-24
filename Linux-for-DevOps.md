@@ -164,11 +164,9 @@
 
 
 ## 🚀[6.File and Directory Management]()
-
-<img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
-
  - ### 🌟[Basic File and Directory Operations]()
     - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
+      <img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
     - [ ] Commands
     - [ ] `ls` - list files and directories
       - [ ] `-a` for listing hidden files
