@@ -255,23 +255,27 @@
     - ctime (Change Time): Last time file metadata (e.g., permissions, ownership) was changed.
       - [ ] `stat filename`
 ## 🚀[7.File/Dir Permission and Ownership]()
+
+<p align="justify">
+
 Unix-like operating systems, such as Linux, running on shared high-performance computers use settings called permissions to determine who can access and modify the files and directories stored in their file systems. Each file and directory in a file system is assigned "owner" and "group" attributes.
 
 Most commonly, by default, the user who creates a file or directory is set as owner of that file or directory. When needed (for example, when a member of your research team leaves), the system's root administrator can change the user attribute for files and directories.
 
 The group designation can be used to grant teammates and/or collaborators shared access to an owner's files and directories, and provides a convenient way to grant access to multiple users.
+</p>
 
-- [ ] 💡Permissions are applied on three levels:- 
+- [ ] 🔴Permissions are applied on three levels:- 
     * Owner or User level  `u`
     * Group level  `g`
     * Others level `o` & `a` for all users
 
-- [ ] 💡Access modes - Each file or directory has three basic permission types
+- [ ] 🔴Access modes - Each file or directory has three basic permission types
     * **r** - read only 
     * **w** - write/edit/delete/append 
     * **x** - execute/run a command 
  
-- [ ] 💡Access modes are different on file and directory:- 
+- [ ] 🔴Access modes are different on file and directory:- 
 
 | Permissions | Files           | Directory |
 |:-----: |:---         |:---   |
@@ -279,7 +283,7 @@ The group designation can be used to grant teammates and/or collaborators shared
 | w | Write, edit, append, delete file | Add/Del/Rename contents of dir |
 | x | To run a command/shell script | To enter into dir using 'cd' |
 
-- [ ] 💡Using Binary References to Set permissions
+- [ ] 🔴Using Binary References to Set permissions
 
 | Binary Reference | Meaning |
 |------------------|---------|
@@ -288,7 +292,7 @@ The group designation can be used to grant teammates and/or collaborators shared
 | `1`              | Execute |
 
 
-- [ ] 💡There are 2 ways to use the command -
+- [ ] 🔴There are 2 ways to use the command -
 
    - [ ] Absolute mode
    - [ ] Symbolic mode
@@ -309,7 +313,7 @@ In this mode, file permissions are not represented as characters but a three-dig
 
 **Command**\
 `chmod 764 samplefile`\
-Assigning full permission to the file i.e. rwx to all - `chmod 777 samplefile`
+`chmod 777 samplefile` - Assigning full permission to the file i.e. rwx to all
 
  - [ ] 🧩Symbolic Mode\
 In the Absolute mode, you change permissions for all 3 owners. In the symbolic mode, you can modify permissions of a specific owner. It makes use of mathematical symbols to modify the file permissions.
@@ -324,11 +328,11 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 `chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r)\
 `chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r) \
 `chmod u=rwx,g+wx,o-x samplefile`\
-Assigning full permission to the file i.e. rwx to all - `chmod ugo=rwx samplefile`\
-Adding execute permission to user only - `chmod u+x samplefile` \
-Removing write and execute permissions from group and other - `chmod go-wx samplefile` \
-Adding write and execute permissions from group and other - `chmod go+wx samplefile` \
-Giving only read permission to group and other - `chmod go=r samplefile`
+`chmod ugo=rwx samplefile` - Assigning full permission to the file i.e. rwx to all\
+`chmod u+x samplefile` - Adding execute permission to user only\
+`chmod go-wx samplefile` - Removing write and execute permissions from group and other\
+`chmod go+wx samplefile` - Adding write and execute permissions from group and other\
+`chmod go=r samplefile` - Giving only read permission to group and other
 
 
 
