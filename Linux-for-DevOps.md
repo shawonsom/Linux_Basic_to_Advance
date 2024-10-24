@@ -54,7 +54,7 @@
   - [File/Directory Link Types - Hard Links vs. Soft Links](#filedirectory-link-types---hard-links-vs-soft-links)
   - [Understanding Paths - `Absolute` vs. relative paths](#understanding-paths---absolute-vs-relative-paths)
   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
-- [7.File Permission and Ownership]()
+- [7.File Permission and Ownership](#7File-Permission-and-Ownership)
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
   - Default and Maximum File/Directory Permission
@@ -163,7 +163,7 @@
 ### APT Vs APT GET
 
 
-## 🚀6.File and Directory Management
+## 🚀[6.File and Directory Management]()
 
 <img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
 
@@ -250,12 +250,14 @@
     - **Relative Path:** The path relative to the current working directory. Uses symbols like `.` (current directory) and `..` (parent directory).
       - [ ] Example: `Documents/file.txt` or `../file.txt`
 
-
-
-
+<img src=https://github.com/user-attachments/assets/a5bbe573-e116-4a0c-81f8-658a96962ad6  height="300" width="900"/>
 
  - ### [🌟Understanding file timestamps: atime, mtime, ctime (stat, touch, date)]()
-- [7.File Permission and Ownership]()
+    - atime (Access Time): Last time the file was read or accessed.
+    - mtime (Modification Time): Last time the file content was modified.
+    - ctime (Change Time): Last time file metadata (e.g., permissions, ownership) was changed.
+      - [ ] `stat filename`
+## 🚀[7.File Permission and Ownership]()
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
   - Default and Maximum File/Directory Permission
