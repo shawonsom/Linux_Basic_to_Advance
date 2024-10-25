@@ -7,7 +7,7 @@
     - Advanced File Permission with Access Control Lists (ACL)
     - Special permissions - Setuid, Setgid, and Sticky Bit
 
-##### 🚀[File/Dir Permission and Ownership]()
+#### 🚀File/Dir Permission and Ownership
 
 <p align="justify">
 
