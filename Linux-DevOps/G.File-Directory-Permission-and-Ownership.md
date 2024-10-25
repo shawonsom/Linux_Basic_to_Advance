@@ -116,6 +116,7 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 ### 🚀Advanced File Permission Concepts
 
 <img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="250" width="900"/>
+
 #### 🔴[File/Dir Permission with Umask]()
 
 Linux uses **permissions** to control who can **read**, **write**, or **execute** files and directories. **Umask** sets the default permissions for new files and directories by removing some permissions to improve security.
