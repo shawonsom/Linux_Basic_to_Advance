@@ -166,10 +166,10 @@ Permissions are shown as `rwxr-xr--` (User/Group/Others).
   ```bash
   umask
   ```
-- **Set a New Umask:**
- ```bash
- umask 027
-  ```      
+- **Set a New Umask**:
+  ```bash
+  umask 027
+   ```      
   - [ ] 🔴[Advanced File Permission with Access Control Lists (ACL)]()
   - [ ] 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
 
