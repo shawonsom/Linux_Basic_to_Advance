@@ -1,4 +1,4 @@
-- [ ] [File/Dir Permission and Ownership](#FileDir-Permission-and-Ownership)
+[File/Dir Permission and Ownership](#FileDir-Permission-and-Ownership)
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
   - Default and Maximum File/Directory Permission
