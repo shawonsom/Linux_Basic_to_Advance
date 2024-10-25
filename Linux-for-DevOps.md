@@ -292,7 +292,6 @@ The group designation can be used to grant teammates and/or collaborators shared
 | `2`              | Write   |
 | `1`              | Execute |
 
-![image](https://github.com/user-attachments/assets/5f948b10-6aab-4a60-9bbc-45e82ab9020f)
 
 
 - [ ] 🔴There are 2 ways to use the command -
