@@ -1,13 +1,12 @@
-[File/Dir Permission and Ownership](#FileDir-Permission-and-Ownership)
-  - Understanding File and Directory Permissions
-  - File/Directory Permission and Ownership
-  - Default and Maximum File/Directory Permission
-  - Advanced File Permission Concepts
+[File/Dir Permissions and Ownership](#FileDir-Permission-and-Ownership)
+  - [File/Directory Permission and Ownership](#FileDir-Permission-and-Ownership)
+  - [Default and Maximum File/Directory Permission](#Default-and-Maximum-FileDirectory-Permission)
+  - [Advanced File Permission Concepts](#Advanced-File-Permission-Concepts)
     - File Permission with Umask
     - Advanced File Permission with Access Control Lists (ACL)
     - Special permissions - Setuid, Setgid, and Sticky Bit
 
-#### 🚀File/Dir Permission and Ownership
+#### 🚀File/Dir Permissions and Ownership
 
 <p align="justify">
 
@@ -115,15 +114,12 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 `chmod a-rwx`\
 `chmod 000`
 
-
-- [ ] 🔴[Default and Maximum File/Directory Permission]()
+#### 🚀[Default and Maximum File/Directory Permission]()
       
 <img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="250" width="900"/>
 
-
-
       
-- [ ] 🔴[Advanced File Permission Concepts]()
+#### 🚀[Advanced File Permission Concepts]()
   - [ ] 🔴[File Permission with Umask]()
   - [ ] 🔴[Advanced File Permission with Access Control Lists (ACL)]()
   - [ ] 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
