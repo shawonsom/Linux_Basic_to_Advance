@@ -68,7 +68,6 @@ In this mode, file permissions are not represented as characters but a three-dig
 ⚡**Command**\
 `chmod 764 samplefile`\
 `chmod 777 samplefile` - Assigning full permission to the file i.e. rwx to all
-
       🧩[Symbolic Mode]()
 
 In the Absolute mode, you change permissions for all 3 owners. In the symbolic mode, you can modify permissions of a specific owner. It makes use of mathematical symbols to modify the file permissions.
