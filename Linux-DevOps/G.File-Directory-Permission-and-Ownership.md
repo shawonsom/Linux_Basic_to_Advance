@@ -165,7 +165,8 @@ Permissions are shown as `rwxr-xr--` (User/Group/Others).
 - **View Current Umask**:
   ```bash
   umask
-- **Set a New Umask**
+  ```
+- **Set a New Umask:**
  ```bash
  umask 027
   ```      
