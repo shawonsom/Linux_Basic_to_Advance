@@ -365,7 +365,7 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 
 - [ ] 🔴[Default and Maximum File/Directory Permission]()
       
-<img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="300" width="900"/>
+<img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="250" width="900"/>
 
 
 
