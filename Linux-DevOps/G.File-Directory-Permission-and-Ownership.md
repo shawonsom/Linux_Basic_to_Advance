@@ -1,4 +1,4 @@
-- [File Permission and Ownership](#FileDir-Permission-and-Ownership)
+- [ ] [File Permission and Ownership](#FileDir-Permission-and-Ownership)
   - Understanding File and Directory Permissions
   - File/Directory Permission and Ownership
   - Default and Maximum File/Directory Permission
@@ -7,7 +7,7 @@
     - Advanced File Permission with Access Control Lists (ACL)
     - Special permissions - Setuid, Setgid, and Sticky Bit
 
-#### 🚀[File/Dir Permission and Ownership]()
+##### 🚀[File/Dir Permission and Ownership]()
 
 <p align="justify">
 
