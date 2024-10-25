@@ -363,11 +363,17 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 `chmod 000`
 
 
-  - Default and Maximum File/Directory Permission
-  - Advanced File Permission Concepts
-    - File Permission with Umask
-    - Advanced File Permission with Access Control Lists (ACL)
-    - Special permissions - Setuid, Setgid, and Sticky Bit
+- [ ] 🔴[Default and Maximum File/Directory Permission]()
+      
+![image](https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95)
+
+
+
+      
+- [ ] 🔴[Advanced File Permission Concepts]()
+  - [ ] 🔴[File Permission with Umask]()
+  - [ ] 🔴[Advanced File Permission with Access Control Lists (ACL)]()
+  - [ ] 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
 
 
 
