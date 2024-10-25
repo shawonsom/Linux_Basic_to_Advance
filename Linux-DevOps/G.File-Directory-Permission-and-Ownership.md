@@ -119,14 +119,12 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 <img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="250" width="900"/>
 
       
-## 🚀Advanced File Permission Concepts
-### 🔴[File/Dir Permission with Umask]()
-
-#### Linux Permissions and Umask
+### 🚀Advanced File Permission Concepts
+#### 🔴[File/Dir Permission with Umask]()
 
 Linux uses **permissions** to control who can **read**, **write**, or **execute** files and directories. **Umask** sets the default permissions for new files and directories by removing some permissions to improve security.
 
-#### Basic Permissions
+##### Basic Permissions
 
 - **Read (`r`)**: View content.
 - **Write (`w`)**: Modify content.
@@ -139,7 +137,7 @@ Each file has three permission sets for:
 
 Permissions are shown as `rwxr-xr--` (User/Group/Others).
 
-#### What is Umask?
+##### What is Umask?
 
 **Umask** stands for **User Mask**. It subtracts permissions from the default settings for new files and directories, helping secure them automatically.
 
@@ -149,7 +147,7 @@ Permissions are shown as `rwxr-xr--` (User/Group/Others).
 
 The umask value is subtracted from the default permissions. Here’s a step-by-step example to see it in action.
 
-#### Example 1: Umask `022`
+##### Example 1: Umask `022`
 
 1. **Determine Default Permissions**:
    - Files: `666`
@@ -165,7 +163,7 @@ The umask value is subtracted from the default permissions. Here’s a step-by-s
    - New files: `644` (read and write for user, read-only for group and others).
    - New directories: `755` (full access for user, read and execute for group and others).
 
-#### Commands to Check and Set Umask
+##### Commands to Check and Set Umask
 
 - **View Current Umask**:
   ```bash
@@ -175,6 +173,63 @@ The umask value is subtracted from the default permissions. Here’s a step-by-s
   ```bash
   umask 027
    ```      
-  - [ ] 🔴[Advanced File Permission with Access Control Lists (ACL)]()
-  - [ ] 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
+
+#### 🔴[Advanced File Permission with Access Control Lists (ACL)]()
+
+ACLs provide finer-grained control over file and directory permissions, allowing specific permissions for individual users and groups beyond standard user, group, and other permissions.
+
+`apt install acl -y`
+
+##### Key Commands and Examples
+1. **Setting ACL for a User**
+   - Grant read, write, and execute permissions to `user1` for `file.txt`:
+     ```bash
+     setfacl -m u:user1:rwx file.txt
+     ```
+2. **Setting ACL for a Group**
+   - Grant read and execute permissions to `group1` for `file.txt`:
+     ```bash
+     setfacl -m g:group1:rx file.txt
+     ```
+3. **Default ACL for a Directory**
+   - Set default permissions for new files in `dir1` so `user2` has read and write access:
+     ```bash
+     setfacl -d -m u:user2:rw dir1
+     ```
+4. **Removing an ACL Entry**
+   - Remove ACL permissions for `user1` on `file.txt`:
+     ```bash
+     setfacl -x u:user1 file.txt
+     ```
+5. **Viewing ACLs**
+   - Display ACL entries for a file or directory:
+     ```bash
+     getfacl file.txt
+     ```
+6. **Setting ACL for Multiple Users and Groups**
+   - Allow `user1` and `group1` read-only permissions on `dir1`:
+     ```bash
+     setfacl -m u:user1:r g:group1:r dir1
+     ```
+7. **Granting ACL for Others**
+   - Set read-only permissions for others on `file.txt`:
+     ```bash
+     setfacl -m o::r file.txt
+     ```
+## Additional Tips
+
+- **usermod**: Modify user attributes, e.g., adding `user1` to `group1`:
+  ```bash
+  usermod -aG group1 user1
+
+##### More Commands and Examples
+
+- `setfacl -x saiful file/directory`  	    - remove only specified ACL from file/directory.
+- `setfacl -x u:saiful file/directory`      - remove only specified ACL from file/directory.
+- `setfacl -b  file/directory`   		        - removing all ACL from file/direcoty 
+- `setfacl -R -m g:groupname:+x testfolder/`- To add groupname to have recursive +execute on testfolder
+- `setfacl -m d:g:groupname:rw testfolder/` - To add default group access right to read and write on testfolder folder 
+
+
+#### 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
 
