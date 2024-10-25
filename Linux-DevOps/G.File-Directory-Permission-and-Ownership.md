@@ -2,7 +2,7 @@
   - [File/Directory Permission and Ownership](#FileDir-Permission-and-Ownership)
   - [Default and Maximum File/Directory Permission](#Default-and-Maximum-FileDirectory-Permission)
   - [Advanced File Permission Concepts](#Advanced-File-Permission-Concepts)
-    - File Permission with Umask
+    - File/Dir Permission with Umask
     - Advanced File Permission with Access Control Lists (ACL)
     - Special permissions - Setuid, Setgid, and Sticky Bit
 
@@ -51,7 +51,7 @@ The group designation can be used to grant teammates and/or collaborators shared
    - [ ] **Absolute mode**
    - [ ] **Symbolic mode**
 
- - [ ] 🧩[Absolute mode]()
+       🧩[Absolute mode]()
 
 In this mode, file permissions are not represented as characters but a three-digit octal number. The table below gives numbers for all for permissions types.
 
@@ -70,7 +70,7 @@ In this mode, file permissions are not represented as characters but a three-dig
 `chmod 764 samplefile`\
 `chmod 777 samplefile` - Assigning full permission to the file i.e. rwx to all
 
- - [ ] 🧩[Symbolic Mode]()
+      🧩[Symbolic Mode]()
 
 In the Absolute mode, you change permissions for all 3 owners. In the symbolic mode, you can modify permissions of a specific owner. It makes use of mathematical symbols to modify the file permissions.
 
@@ -92,20 +92,20 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 
 ⚡**Random Command**\
 `ls -al /path/to/file/or/dir` 	   	- Check current permissions\
-`chmod 755 file-name` 			   	- Set owner have full permission group and other users has only read and execute permission.\
-`chmod u+x your_script.sh` 		   	- Set execute permission for the owner only.\
-`chmod u+rwx test-file` 			- Provide full access to owners\
-`chmod ugo+r-x test-file` 		   	- Provide Read access to Owners, groups and others, Remove execute access\
-`chmod o-rwx test-file` 			- Remove all access for others\
+`chmod 755 file-name` 			   	    - Set owner have full permission group and other users has only read and execute permission.\
+`chmod u+x your_script.sh` 		   	  - Set execute permission for the owner only.\
+`chmod u+rwx test-file` 			      - Provide full access to owners\
+`chmod ugo+r-x test-file` 		   	  - Provide Read access to Owners, groups and others, Remove execute access\
+`chmod o-rwx test-file` 			      - Remove all access for others\
 `chmod u+rwx,g+r-x,o-rwx test-file` - Full access for Owner, add read , remove execute for group and no access for others\
-`chmod 777 test-file` 			   	- Provide full access to Owners, group and others\
-`chmod 660 test-file` 			   	- Read and Write access for Owner and Group, No access for others.\
-`chmod 750 test-file` 			   	- Full access for Owner, read and execute for group and no access for others.\
-`chown bob:developer test-file` 	- Changes owner to bob and group to developer\
-`chown bob andoid.apk` 			   	- Changes just the owner of the file to bob. Group unchanged\
-`chgrp android test-file` 		   	- Change the group for the test-file to the group called android\
-`chown -R msi:msi /dir` 		   	- Append -R for recursive syntax (include sub files and directories)\
-`chmod -u+r,g-w,o-rwx` 			   	- Multiple permissions at once\
+`chmod 777 test-file` 			   	    - Provide full access to Owners, group and others\
+`chmod 660 test-file` 			   	    - Read and Write access for Owner and Group, No access for others.\
+`chmod 750 test-file` 			   	    - Full access for Owner, read and execute for group and no access for others.\
+`chown bob:developer test-file` 	  - Changes owner to bob and group to developer\
+`chown bob andoid.apk` 			   	    - Changes just the owner of the file to bob. Group unchanged\
+`chgrp android test-file` 		   	  - Change the group for the test-file to the group called android\
+`chown -R msi:msi /dir` 		       	- Append -R for recursive syntax (include sub files and directories)\
+`chmod -u+r,g-w,o-rwx` 			   	    - Multiple permissions at once\
 `chmod +rwx filename`\
 `chmod +x filename`\
 `chmod u-rwx`\						
@@ -120,7 +120,56 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 
       
 ### 🚀Advanced File Permission Concepts
-  - [ ] 🔴[File Permission with Umask]()
+  - [ ] 🔴[File/Dir Permission with Umask]()
+
+#### Linux Permissions and Umask
+
+Linux uses **permissions** to control who can **read**, **write**, or **execute** files and directories. **Umask** sets the default permissions for new files and directories by removing some permissions to improve security.
+
+##### Basic Permissions
+
+- **Read (`r`)**: View content.
+- **Write (`w`)**: Modify content.
+- **Execute (`x`)**: Run files or access directories.
+
+Each file has three permission sets for:
+1. **User (Owner)**
+2. **Group**
+3. **Others**
+
+Permissions are shown as `rwxr-xr--` (User/Group/Others).
+
+##### What is Umask?
+
+**Umask** stands for **User Mask**. It subtracts permissions from the default settings for new files and directories, helping secure them automatically.
+
+- **Default Permissions**:
+  - **Files**: `666` (read/write for everyone) – no execute by default.
+  - **Directories**: `777` (read/write/execute for everyone).
+
+- **How Umask Works**:
+  - Umask removes specific permissions. For example, a umask of `022` takes away **write** permission for Group and Others.
+
+##### Common Umask Examples
+
+1. **Umask `022`**:
+   - **Files** become `644` (read/write for User, read-only for Group and Others).
+   - **Directories** become `755` (full access for User, read/execute for Group and Others).
+
+2. **Umask `027`**:
+   - **Files** become `640` (read/write for User, read-only for Group, no access for Others).
+   - **Directories** become `750` (full access for User, read/execute for Group, no access for Others).
+
+##### Commands to Check and Set Umask
+
+- **View Current Umask**:
+  ```bash
+  umask
+- **Set a New Umask**
+ ```bash
+ umask 027
+
+        
   - [ ] 🔴[Advanced File Permission with Access Control Lists (ACL)]()
   - [ ] 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
 
