@@ -119,14 +119,14 @@ In the Absolute mode, you change permissions for all 3 owners. In the symbolic m
 <img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="250" width="900"/>
 
       
-### 🚀Advanced File Permission Concepts
-  - [ ] 🔴[File/Dir Permission with Umask]()
+## 🚀Advanced File Permission Concepts
+### 🔴[File/Dir Permission with Umask]()
 
 #### Linux Permissions and Umask
 
 Linux uses **permissions** to control who can **read**, **write**, or **execute** files and directories. **Umask** sets the default permissions for new files and directories by removing some permissions to improve security.
 
-##### Basic Permissions
+#### Basic Permissions
 
 - **Read (`r`)**: View content.
 - **Write (`w`)**: Modify content.
@@ -139,7 +139,7 @@ Each file has three permission sets for:
 
 Permissions are shown as `rwxr-xr--` (User/Group/Others).
 
-##### What is Umask?
+#### What is Umask?
 
 **Umask** stands for **User Mask**. It subtracts permissions from the default settings for new files and directories, helping secure them automatically.
 
@@ -147,20 +147,25 @@ Permissions are shown as `rwxr-xr--` (User/Group/Others).
   - **Files**: `666` (read/write for everyone) – no execute by default.
   - **Directories**: `777` (read/write/execute for everyone).
 
-- **How Umask Works**:
-  - Umask removes specific permissions. For example, a umask of `022` takes away **write** permission for Group and Others.
+The umask value is subtracted from the default permissions. Here’s a step-by-step example to see it in action.
 
-##### Common Umask Examples
+#### Example 1: Umask `022`
 
-1. **Umask `022`**:
-   - **Files** become `644` (read/write for User, read-only for Group and Others).
-   - **Directories** become `755` (full access for User, read/execute for Group and Others).
+1. **Determine Default Permissions**:
+   - Files: `666`
+   - Directories: `777`
 
-2. **Umask `027`**:
-   - **Files** become `640` (read/write for User, read-only for Group, no access for Others).
-   - **Directories** become `750` (full access for User, read/execute for Group, no access for Others).
+2. **Apply the Umask (`022`)**:
+   - Subtract each umask digit from the default permission digit:
+     - `6 - 0 = 6`
+     - `6 - 2 = 4`
+     - `6 - 2 = 4`
 
-##### Commands to Check and Set Umask
+3. **Resulting Permissions**:
+   - New files: `644` (read and write for user, read-only for group and others).
+   - New directories: `755` (full access for user, read and execute for group and others).
+
+#### Commands to Check and Set Umask
 
 - **View Current Umask**:
   ```bash
