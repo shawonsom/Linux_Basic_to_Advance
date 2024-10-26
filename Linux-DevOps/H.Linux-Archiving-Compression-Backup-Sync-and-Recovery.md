@@ -1,8 +1,4 @@
-
-
-
-
-Archiving and Compression
+## Archiving and Compression
 **Archiving:** Combining files into a single file for easy storage/transfer and **Compression:** Reducing file size to save space and bandwidth. **Why It Matters -** Efficient storage, faster transfer, simplified management.
 
 
@@ -12,63 +8,6 @@ Archiving and Compression
 | Common Compression      | `gzip`, `bzip2`, `xz`     | `.zip`, `.rar`, `.7z`       |
 | Built-In Support        | Mostly `tar`, `gzip`      | File Explorer (`.zip`)      |
 | CLI Support             | Yes, via Shell            | Yes, via PowerShell         |
-
-
-Archive
--------
-.tar 
-.zip
-.rar
-.7z
-
-Archive + Compression
----------------------
-.tar.gz  - Archive + Compression
-.tar.bz2 - Archive + More Compression
-.tar.xz  - Archive + More and More Compression
-
-
-10 MB - 4MB(.tar.gz) | 3MB(.tar.bz2) | 2MB(tar.xz)
-
-c - Create
-v - Verbose
-f - Files
-z - gz
-j - bz2
-J - xz
-x - Extract
-
-
-Archive
-----------------------------------------
-tar -cvf archive-etc.tar etc
-tar -xvf archive-etc.tar
-
-Archive + Compression
-----------------------------------------
-tar -czvf archive+compression.tar.gz etc
-tar -xzvf archive+compression.tar.gz
-
-Archive + More Compression
-----------------------------------------
-tar -cjvf archive+more-compression.tar.bz2 etc
-tar -xjvf archive+more-compression.tar.bz2
-
-Archive + More and More Compression
-----------------------------------------
-tar -cJvf archive+more+more-compression.tar.xz etc
-tar -xJvf archive+more+more-compression.tar.xz
-
-Only Compression
-----------------------------------------
-gzip passwd
-gunzip passwd.gz
-
-bzip2 passwd
-bunzip2 passwd.bz2
-
-xz passwd
-unxz passwd.xz
 
 
 ### Archive Formats
@@ -174,16 +113,20 @@ unxz passwd.xz
 ```
 
 
+| Command                | Purpose                                               | Usage                                   | Example Command                       |
+|------------------------|-------------------------------------------------------|-----------------------------------------|---------------------------------------|
+| `apt install unrar`    | Installs tool to **extract** `.rar` files             | Use to decompress `.rar` files          | `unrar x archive.rar`                 |
+| `apt install rar`      | Installs tool to **create and extract** `.rar` files  | Use to create or decompress `.rar` files| `rar a archive.rar folder/`           |
+| `apt install zip`      | Installs tool to **create** `.zip` files              | Use to compress files into `.zip`       | `zip archive.zip file1 file2`         |
+| `apt install unzip`    | Installs tool to **extract** `.zip` files             | Use to decompress `.zip` files          | `unzip archive.zip`                   |
+| apt install p7zip-full | Installs tool to **create and extract** `.7z` files   |
 
-
-
-
-
-
-
-
-
-
+### Key Differences
+- **unrar**: For extracting `.rar` files only.
+- **rar**: For creating and extracting `.rar` files.
+- **zip**: Used for creating compressed `.zip` files.
+- **unzip**: Used for extracting `.zip` files.
+- **7z**: For creating and extracting `.7z` files.
 
 
 
