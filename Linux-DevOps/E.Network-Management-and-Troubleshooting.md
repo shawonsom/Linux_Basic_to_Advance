@@ -1,1 +1,11 @@
-
+- [5.Network Management and Troubleshooting]()
+  - Telnet
+  - Ping(ICMP)
+  - Traceroute
+  - Static Route IP
+  - Curl
+  - Packet Analysis
+  - Netstat
+  - ifconfig
+  - tcpdump
+  - mtr
