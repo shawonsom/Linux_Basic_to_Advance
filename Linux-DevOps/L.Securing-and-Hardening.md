@@ -1,1 +1,7 @@
-L.Securing-and-Hardening.md
+- [12.Securing and Hardening]
+   - Iptables | Netfilter | NFTables | FirewallD | UFW
+   - Security
+   - AppArmor
+   - TCP Wrapper
+   - SeLinux
+   - Fail2ban
