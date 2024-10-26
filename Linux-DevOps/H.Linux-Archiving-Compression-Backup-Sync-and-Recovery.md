@@ -113,12 +113,12 @@ unxz passwd.xz
 ```
 
 
-| Command                  | Purpose                                                 | Usage                                   | Example Command                       |
-|--------------------------|---------------------------------------------------------|-----------------------------------------|---------------------------------------|
-| `apt install unrar`      | Installs tool to **extract** `.rar` files               | Use to decompress `.rar` files          | `unrar x archive.rar`                 |
-| `apt install rar`        | Installs tool to **create and extract** `.rar` files    | Use to create or decompress `.rar` files| `rar a archive.rar folder/`           |
-| `apt install zip`        | Installs tool to **create** `.zip` files                | Use to compress files into `.zip`       | `zip archive.zip file1 file2`         |
-| `apt install unzip`      | Installs tool to **extract** `.zip` files               | Use to decompress `.zip` files          | `unzip archive.zip`                   |
+| Command                  | Purpose                                                 | Usage                                   | 
+|--------------------------|---------------------------------------------------------|-----------------------------------------|
+| `apt install unrar`      | Installs tool to **extract** `.rar` files               | Use to decompress `.rar` files          |
+| `apt install rar`        | Installs tool to **create and extract** `.rar` files    | Use to create or decompress `.rar` files|
+| `apt install zip`        | Installs tool to **create** `.zip` files                | Use to compress files into `.zip`       | 
+| `apt install unzip`      | Installs tool to **extract** `.zip` files               | Use to decompress `.zip` files          |
 | `apt install p7zip-full` | Installs tool to **create and extract** `.7z` files     |
 
 ### Key Differences
