@@ -1,1 +1,10 @@
-
+- [14.Server Deployment]()
+   - [Deploying LAMP/LEMP and Websites]
+   - NTP Server and Client
+   - NFS Server and Client
+   - HTTP Server with Virtual Hosting
+   - MariaDB Server
+   - Nginx Web Server & Nginx Reverse Proxy
+   - HaProxy LB
+   - SSH Server with Key Based authentication
+   - SSL & TLS - Let's Encrypt
