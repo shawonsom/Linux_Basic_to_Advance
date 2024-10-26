@@ -1,1 +1,4 @@
-I.Command-Line | Awesome-Linux-commands.md
+Command-Line | Awesome-Linux-commands
+  - [Essential Basic and Advance Linux Commands](#Essential-Basic-and-Advance-Linux-Commands)
+  - [Text Processing]
+     - Text Manipulation Commands 
