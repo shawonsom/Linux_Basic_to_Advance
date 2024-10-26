@@ -21,8 +21,6 @@ Archive
 .rar
 .7z
 
-
-
 Archive + Compression
 ---------------------
 .tar.gz  - Archive + Compression
@@ -61,11 +59,138 @@ Archive + More and More Compression
 tar -cJvf archive+more+more-compression.tar.xz etc
 tar -xJvf archive+more+more-compression.tar.xz
 
+Only Compression
+----------------------------------------
+gzip passwd
+gunzip passwd.gz
+
+bzip2 passwd
+bunzip2 passwd.bz2
+
+xz passwd
+unxz passwd.xz
+
+
+### Archive Formats
+Archiving combines multiple files or folders into a single file without compression. Common archive formats include:
+- **.tar**: Linux standard archiving format without compression.
+- **.zip**: Archive format with built-in compression (cross-platform).
+- **.rar**: Proprietary archive format with compression.
+- **.7z**: High compression archive format.
+
+### Archive + Compression Formats
+Archive + Compression combines files into a single file and reduces file size:
+- **.tar.gz**: Archive with **gzip** compression (standard compression).
+- **.tar.bz2**: Archive with **bzip2** compression (higher compression).
+- **.tar.xz**: Archive with **xz** compression (highest compression).
+
+| File Size Comparison | 10 MB File |
+|----------------------|------------|
+| `.tar.gz`            | 4 MB       |
+| `.tar.bz2`           | 3 MB       |
+| `.tar.xz`            | 2 MB       |
+
+### Common Flags for `tar` Command
+| Flag | Description                       |
+|------|-----------------------------------|
+| `c`  | Create a new archive              |
+| `v`  | Verbose (show progress in terminal) |
+| `f`  | Specify filename of archive       |
+| `z`  | Compress with gzip                |
+| `j`  | Compress with bzip2               |
+| `J`  | Compress with xz                  |
+| `x`  | Extract an archive                |
+
+### Archive Commands
+
+#### Basic Archive (No Compression)
+Create and extract a simple archive with `tar`:
+```bash
+# Create a .tar archive
+tar -cvf archive-etc.tar etc
+
+# Extract a .tar archive
+tar -xvf archive-etc.tar
+```
+
+#### Archive + Compression (gzip)
+Create and extract a `.tar.gz` archive:
+```bash
+# Create a .tar.gz archive
+tar -czvf archive+compression.tar.gz etc
+
+# Extract a .tar.gz archive
+tar -xzvf archive+compression.tar.gz
+```
+
+#### Archive + More Compression (bzip2)
+Create and extract a `.tar.bz2` archive:
+```bash
+# Create a .tar.bz2 archive
+tar -cjvf archive+more-compression.tar.bz2 etc
+
+# Extract a .tar.bz2 archive
+tar -xjvf archive+more-compression.tar.bz2
+```
+
+#### Archive + Highest Compression (xz)
+Create and extract a `.tar.xz` archive:
+```bash
+# Create a .tar.xz archive
+tar -cJvf archive+more+more-compression.tar.xz etc
+
+# Extract a .tar.xz archive
+tar -xJvf archive+more+more-compression.tar.xz
+```
+
+### Compression Only (No Archiving)
+Compress individual files without creating an archive, only compression is better for single file not directory. 
+
+### Using gzip
+```bash
+# Compress a file
+gzip passwd
+
+# Decompress a file
+gunzip passwd.gz
+```
+
+### Using bzip2
+```bash
+# Compress a file
+bzip2 passwd
+
+# Decompress a file
+bunzip2 passwd.bz2
+```
+
+### Using xz
+```bash
+# Compress a file
+xz passwd
+
+# Decompress a file
+unxz passwd.xz
+```
 
 
 
- - Archiving & Compression
-     - tar  | zip | gz | xz | bz2 | gzip | bzip2 | unzip | extract | decompress | gzip, gunzip, tar,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   - Backup & Sync
   - Backup/Recovery
 
