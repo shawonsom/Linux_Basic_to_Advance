@@ -1,1 +1,9 @@
-
+- [3.Administering Users and Groups](#3Administering-Users-and-Groups)
+  - Creating and Managing a user
+  - adduser | useradd
+  - Understanding passwd and shadow files
+  - Understanding Linux Groups (groups, id)
+  - Creating, changing, and removing user accounts (useradd, usermod, userdel)
+  - Sudo Group,Permissions and sudousers file for a user
+  - Group management (groupadd, groupdel, groupmod)
+  - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
