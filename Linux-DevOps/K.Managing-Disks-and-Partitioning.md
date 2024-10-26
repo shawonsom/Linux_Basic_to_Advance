@@ -1,1 +1,9 @@
-
+- [11.Managing Disks and Partitioning]
+  - Device - SSD | HDD | USB | Nvme
+  - Filesystem Types - ext4, XFS | Block,File,Object
+  - Partition Management
+  - Logical Volume Managemnt(LVM)
+  - Swap Partition
+  - Mount and Unmount
+  - lspci
+  - sscsi 
