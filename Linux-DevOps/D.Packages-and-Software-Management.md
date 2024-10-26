@@ -1,1 +1,15 @@
-
+- [4.Packages and Software Management]()
+  - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
+  - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
+  - Repository File | /etc/apt/sources.list
+  - Installation new applications using `apt`
+  - Install manually downloaded packages with example
+  - Services like HTTP, SSH
+  - Key Linux Package Management Commands
+     - Ubuntu Based Systems
+            - Searching through the repositories to find new apps
+            - Installing packages that are not in the repository
+            - Keeping programs updated
+     - Fedora/RHEL 8 Based Systems
+     - Suse Based Systems
+     - Arch Based Systems
