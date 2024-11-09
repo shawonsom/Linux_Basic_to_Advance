@@ -8,7 +8,7 @@
   - lspci
   - sscsi
   - 
-![Storage Terminology Diagram](https://github.com/user-attachments/assets/f37882a4-f020-48f2-a37d-d9c1c034b209)
+<img src=https://github.com/user-attachments/assets/f37882a4-f020-48f2-a37d-d9c1c034b209 height="500" width="800"/>
 
 
 ## Storage Management In Linux
