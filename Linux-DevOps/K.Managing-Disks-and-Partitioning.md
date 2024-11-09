@@ -52,6 +52,13 @@ MBR (Master Boot Record) and GPT (GUID Partition Table) are two different partit
 
 ---
 
+`sudo fdisk -l /dev/sda`/
+`sudo gdisk /dev/sda`/
+`sudo parted -l`
+
+
+
+
 
 ## Add a New Disk to your existing LVM 
 
