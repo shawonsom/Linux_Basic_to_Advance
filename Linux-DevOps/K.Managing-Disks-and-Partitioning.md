@@ -35,6 +35,7 @@ How to configure LVM in Linux step-by-step\
 How to configure RAID in Linux step-by-step\
 How to manage disk quota in Linux step-by-step\
 
+https://github.com/kodekloudhub/linux-basics-course/tree/master/docs/08-Storage-in-Linux
 
 
 
