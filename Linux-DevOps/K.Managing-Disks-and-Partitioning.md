@@ -1,4 +1,4 @@
-- [11.Managing Disks and Partitioning]
+## Managing Disks and Partitioning
   - Device - SSD | HDD | USB | Nvme
   - Filesystem Types - ext4, XFS | Block,File,Object
   - Partition Management
@@ -7,7 +7,37 @@
   - Mount and Unmount
   - lspci
   - sscsi
-  - 
+  - Block device
+  - SCSI device
+  - Raid
+  - LVM
+  - XFS
+  - EXT4
+  - NAS/NFS(Client & Server)
+  - SAMBA
+  - FTP
+  - iSCSI(Initiator & Target)
+
+
+[Linux disk management terminology](https://www.computernetworkingnotes.com/linux-tutorials/linux-disk-management-tutorial.html)\
+File Management Commands in Linux\
+List view and find hard disk names in Linux\
+Linux file system types explained\
+The fdisk command on Linux explained\
+Manage Linux disk partition with the gdisk command\
+The /etc/fstab file on Linux explained\
+Linux disk management with the parted command\
+The mkfs command on Linux\
+The mount command on Linux temporary mounting\
+The swap space on Linux explained\
+How to create a swap partition in Linux\
+How to configure LVM in Linux step-by-step\
+How to configure RAID in Linux step-by-step\
+How to manage disk quota in Linux step-by-step\
+
+
+
+
 <img src=https://github.com/user-attachments/assets/f37882a4-f020-48f2-a37d-d9c1c034b209 height="800" width="700"/>
 
 
