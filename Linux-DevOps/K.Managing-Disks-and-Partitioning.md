@@ -9,14 +9,14 @@
   - sscsi 
 
 
-# Storage Management In Linux
+## Storage Management In Linux
 
 **How the disk is divided into partitions and how the information about these partitions is stored?**\
 MBR (Master Boot Record) and GPT (GUID Partition Table) are two different partitioning schemes used to organize and manage data on storage devices, particularly on hard disk drives (HDDs) and solid-state drives (SSDs).
 
-# Key Comparisons: BIOS vs UEFI vs MBR vs GPT
 
-## Overview of Key Terms
+
+### Overview of Key Terms
 
 1. **BIOS (Basic Input/Output System)**:
    - **Definition**: BIOS is the traditional firmware interface for computers. It initializes hardware during the boot process and provides runtime services for operating systems and programs.
@@ -36,7 +36,7 @@ MBR (Master Boot Record) and GPT (GUID Partition Table) are two different partit
 
 ---
 
-## Key Comparisons
+### Key Comparisons
 
 | Feature               | **BIOS**                             | **UEFI**                               | **MBR**                                | **GPT**                              |
 |-----------------------|--------------------------------------|----------------------------------------|----------------------------------------|--------------------------------------|
