@@ -86,8 +86,39 @@ MBR (Master Boot Record) and GPT (GUID Partition Table) are two different partit
 `sudo gdisk /dev/sda`\
 `sudo parted -l`
 
+**What is a Partition?**
+
+Partition is a logical container which is used to house filesystems, where operating systems, applications, anddata is stored on. A single partition may span the entirety of a physical storage device.
+
+**Types of Disk Partitions**
+
+**There are three main types of partitions:**\
+Primary Partitions: Directly accessible and used for booting the system. A disk can have up to four primary partitions.\
+Extended Partitions: Created within a primary partition, acting as a container that can hold multiple logical partitions. This is a workaround for the four-partition limit.\
+Logical Partitions: Nested within an extended partition, allowing for more than four partitions on a disk.
 
 
+
+**What is a File System?**
+
+A file system provides a way of separating the data on the drive into individual pieces, which are the files. Italso provides a way to store data about these files for example, their filenames, permissions, and otherattributes.
+
+Each partition can use a different file system (ext4, NTFS, FAT32, etc.), affecting performance, storage efficiency, and compatibility.
+
+Tools for Disk Partitioning in Linux. Linux offers a plethora of tools for disk partitioning, including:
+
+fdisk: A command-line utility ideal for MBR disks.\
+gdisk: Similar to fdisk but for GPT disks.\
+parted: A versatile tool that supports both MBR and GPT disks.
+
+**What is LVM?**
+
+LVM is a more flexible approach to managing disk space. It allows for resizing partitions (logical volumes) on the fly, creating snapshots, and combining multiple physical disks into one large virtual one.
+
+
+Physical Volumes (PV): Physical disks or disk partitions.
+Volume Groups (VG): Collections of physical volumes, acting as a pool of disk space.
+Logical Volumes (LV): Segments of a volume group that are used by the system as individual partitions.
 
 
 ## Add a New Disk to your existing LVM 
