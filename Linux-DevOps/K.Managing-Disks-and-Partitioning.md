@@ -6,7 +6,9 @@
   - Swap Partition
   - Mount and Unmount
   - lspci
-  - sscsi 
+  - sscsi
+  - 
+![Storage Terminology Diagram](https://github.com/user-attachments/assets/f37882a4-f020-48f2-a37d-d9c1c034b209)
 
 
 ## Storage Management In Linux
