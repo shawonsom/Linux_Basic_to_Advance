@@ -1,9 +1,7 @@
 - [14.Server Deployment]()
    - [Deploying LAMP/LEMP and Websites](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md)
    - NTP Server and Client
-   - NFS Server and Client
-   - HTTP Server with Virtual Hosting
-   - MariaDB Server
+   - [NFS Server and Client](https://github.com/saifulislam88/nfs-server?tab=readme-ov-file#manual-installation)
    - Nginx Web Server & Nginx Reverse Proxy
    - HaProxy LB
    - SSH Server with Key Based authentication
