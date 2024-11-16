@@ -1,5 +1,5 @@
 - [14.Server Deployment]()
-   - [Deploying LAMP/LEMP and Websites]
+   - [Deploying LAMP/LEMP and Websites](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md)
    - NTP Server and Client
    - NFS Server and Client
    - HTTP Server with Virtual Hosting
