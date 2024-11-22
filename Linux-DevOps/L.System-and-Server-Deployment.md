@@ -1,7 +1,17 @@
 - [14.Server Deployment]()
    - [Deploying Websites with LAMP Stack](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md)
+      - Linux
       - [Apache Install](https://github.com/nasirnjs/LinuxOpsHub/blob/main/apache-web-server-configure.md)
+      - MariaDB/Mysql
+      - PHP
+   - [Deploying Websites with LEMP Stack](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md)
+      - Linux
+      - Nginx
+      - MariaDB/Mysql
+      - PHP
    - NTP Server and Client
+   - SNMP Server and Client
+   - Rsyslog and Logrotate Server
    - [NFS Server and Client](https://github.com/saifulislam88/nfs-server?tab=readme-ov-file#manual-installation)
    - Nginx Web Server 
    - Nginx Reverse Proxy
