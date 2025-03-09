@@ -11,6 +11,10 @@
 ## 🚀2.Setting up the environment (installing both Ubuntu and Redhat)
 ### Graphical vs Minimal Mode
 ### Networking
+
+#### Static IP Configuration - Netplan
+https://github.com/nasirnjs/LinuxOpsHub/blob/main/0-static_IP_configuration.md
+
 ### Connect/Login to Linux system | Login Client
 ### Introduction to Shell
 ### Hostfile
