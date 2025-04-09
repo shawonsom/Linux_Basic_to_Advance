@@ -11,6 +11,12 @@
 
 ## Ubuntu Linux User Management
 
+Linux User Type’s:                                                                                                                                                                                                                                                                                                                    => root User: Administrator (#)
+=> system User: Service (mail/ftp/games/daemon)-cannot login.
+=> regular User: Saiful; Parvej ($)
+
+
+
 ### 1. User Management  
 | Task | Command |
 |---|---|
