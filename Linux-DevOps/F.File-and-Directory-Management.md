@@ -1,4 +1,5 @@
 - [6.File and Directory Management](#6file-and-directory-management)
+  - [Linux File System Hierarchy](#Linux-File-System-Hierarchy) 
   - [Basic File and Directory Operations](#Basic-File-and-Directory-Operations)
   - [File/Directory Types](#filedirectory-types)
   - [File/Directory Link Types - Hard Links vs. Soft Links](#filedirectory-link-types---hard-links-vs-soft-links)
@@ -6,7 +7,92 @@
   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 
 
-## 🚀[6.File and Directory Management]()
+### 🚀[6.File and Directory Management]()
+
+
+## Linux File System Hierarchy
+
+The Linux File System Hierarchy Standard (FSH) defines the directory structure and directory contents in Linux operating systems. Below is an overview of the most important directories in the root (`/`) filesystem.
+![{C4921C24-38A2-49CD-8B33-A9AD57E82121}](https://github.com/user-attachments/assets/cd56a6b2-9eb3-499f-a3a8-f9c3600b52c1)
+
+### / (Root)
+- The top-level directory.
+- All other directories are under this.
+- Example: `/bin`, `/home`, `/etc`
+
+### /bin (Essential User Binaries)
+- Contains essential command binaries that are needed in single-user mode and to repair a system.
+- Example: `ls`, `cp`, `mv`, `rm`, `bash`
+
+### /boot
+- Contains the Linux kernel and other files needed to boot the system.
+- Example: `vmlinuz`, `initrd.img`, `grub/`
+
+### /dev (Device Files)
+- Contains device nodes for hardware devices.
+- Example: `/dev/sda`, `/dev/null`, `/dev/tty`
+
+### /etc (Configuration Files)
+- Contains all system-wide configuration files.
+- Example: `/etc/hostname`, `/etc/hosts`, `/etc/passwd`
+
+### /home (Home Directories)
+- Contains personal directories for regular users.
+- Example: `/home/alice`, `/home/bob`
+
+### /lib, /lib64 (Shared Libraries)
+- Contains essential shared libraries for binaries in `/bin` and `/sbin`.
+- Example: `libc.so.6`
+
+### /media (Removable Media)
+- Mount point for removable devices like USB drives and CD-ROMs.
+- Example: `/media/usb`, `/media/cdrom`
+
+### /mnt (Temporary Mount Point)
+- Traditionally used for mounting filesystems temporarily.
+
+### /opt (Optional Software)
+- Used for installing third-party software.
+- Example: `/opt/google`, `/opt/vmware`
+
+### /proc (Process Information)
+- Virtual filesystem providing process and kernel information.
+- Example: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/1`
+
+### /root (Root User Home Directory)
+- Home directory for the root user.
+- Example: Files related to root user are stored here.
+
+### /run (Runtime Variable Data)
+- Contains system information data describing the system since it was booted.
+
+### /sbin (System Binaries)
+- Contains essential system binaries, typically used by root.
+- Example: `ifconfig`, `reboot`, `fsck`
+
+### /srv (Service Data)
+- Contains data for services provided by the system.
+- Example: Web server files might be in `/srv/www`
+
+### /sys (System Information)
+- Virtual filesystem containing information about devices, drivers, and kernel features.
+
+## /tmp (Temporary Files)
+- Storage for temporary files created by system and users.
+- Cleared on reboot.
+
+### /usr (User Binaries and Read-Only Data)
+- Secondary hierarchy for read-only user data; contains the majority of (multi-)user utilities and applications.
+- Example: `/usr/bin`, `/usr/lib`, `/usr/share`
+
+### /var (Variable Data)
+- Contains variable data like logs, databases, and emails.
+- Example: `/var/log`, `/var/mail`, `/var/tmp`
+
+---
+
+
+
  - ### 🌟[Basic File and Directory Operations]()
     - ### 🎉Creating, Deleting, Moving, and Copying Files/Directories
       <img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
