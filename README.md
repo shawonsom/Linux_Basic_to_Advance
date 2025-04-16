@@ -1,9 +1,7 @@
-# DevOps
-Devops Knowledge Training and Learning
+### DevOps
+DevOps Operations Tools | Manual | Guide | Command
 
-Every DevOps engineer should have knowledge of Networking troubleshoot
-
-For example,
+Q1. Every DevOps engineer should have knowledge of Networking troubleshoot
 
  - Network latency issues
  - Routing problems
