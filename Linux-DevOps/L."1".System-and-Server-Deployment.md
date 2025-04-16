@@ -16,6 +16,11 @@
    - Nginx Web Server 
    - Nginx Reverse Proxy
    - HaProxy LB
-   - SSH Server with Key Based authentication
    - SSL & TLS - Let's Encrypt
-   -[ SSH Server](#)
+   - [ SSH Server](https://github.com/saifulislam88/SSH-Server/blob/main/openssh-server-deployment.md)
+   - Mail Server
+   - DNS Server
+   - Redis Server
+   - RabbitMQ
+   - FTP
+  
