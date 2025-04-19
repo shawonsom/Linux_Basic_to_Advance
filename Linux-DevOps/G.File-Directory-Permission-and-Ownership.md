@@ -1,3 +1,6 @@
+![{FEF42E9C-3065-4597-B469-12AFEAF7F584}](https://github.com/user-attachments/assets/3649ecd8-62dc-4ba9-baae-06bbb9246fe0)
+
+
 - [ ] [File/Dir Permissions and Ownership](#FileDir-Permission-and-Ownership)
   - [File/Directory Permission and Ownership](#FileDir-Permission-and-Ownership)
   - [Advanced File Permission Concepts](#Advanced-File-Permission-Concepts)
