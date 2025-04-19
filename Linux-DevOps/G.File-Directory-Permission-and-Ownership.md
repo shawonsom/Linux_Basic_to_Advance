@@ -1,4 +1,4 @@
-<img src="https://github.com/user-attachments/assets/3649ecd8-62dc-4ba9-baae-06bbb9246fe0" width="600" height="800"/>
+<img src="https://github.com/user-attachments/assets/3649ecd8-62dc-4ba9-baae-06bbb9246fe0" width="300" height="800"/>
 
 
 - [ ] [File/Dir Permissions and Ownership](#FileDir-Permission-and-Ownership)
