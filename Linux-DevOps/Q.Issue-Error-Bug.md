@@ -5,8 +5,9 @@
   ##### ⚠️Issue"1": Broken Sudo Due to Sudoers Syntax Error
   If your sudo is broken due to a bad /etc/sudoers file, and you're getting errors like:
   
-  ```visudo```
-  ```!#saiful ALL=(ALL) ALL```
+  ```visudo```\
+  ```!#saiful ALL=(ALL) ALL```\
+  ``` visudo -cf /etc/sudoers ```
   
   ```sh
   >>> /etc/sudoers: syntax error near line XX <<<
