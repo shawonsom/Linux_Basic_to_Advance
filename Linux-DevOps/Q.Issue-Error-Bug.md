@@ -1,11 +1,11 @@
 
-- Issue"1": [Broken Sudo Due to Sudoers Syntax Error](#Broken-Sudo-Due-to-Sudoers-Syntax-Error)
+- Issue"1": [Broken Sudo Due to Sudoers Syntax Error](#issue1-broken-sudo-due-to-sudoers-syntax-error)
 
 
-  
-  ##### Issue"1": Broken Sudo Due to Sudoers Syntax Error
+  ##### ⚠️Issue"1": Broken Sudo Due to Sudoers Syntax Error
   If your sudo is broken due to a bad /etc/sudoers file, and you're getting errors like:
   
+  ```visudo```
   ```!#saiful ALL=(ALL) ALL```
   
   ```sh
@@ -14,7 +14,6 @@
   sudo: no valid sudoers sources found, quitting
   sudo: unable to initialize policy plugin
   ```
-  
   - Recommended Fix (Safe):
     - Boot from a Live ISO or Recovery Disk.
     - Login using root credentials
