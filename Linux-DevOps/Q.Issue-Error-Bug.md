@@ -3,7 +3,7 @@
 
 
   
-  ##### Broken Sudo Due to Sudoers Syntax Error
+  ##### Issue"1": Broken Sudo Due to Sudoers Syntax Error
   If your sudo is broken due to a bad /etc/sudoers file, and you're getting errors like:
   
   ```!#saiful ALL=(ALL) ALL```
