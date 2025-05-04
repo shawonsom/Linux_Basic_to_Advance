@@ -23,4 +23,5 @@
    - Redis Server
    - RabbitMQ
    - FTP
+   - Squid Proxy - Transparent 
   
