@@ -5,6 +5,7 @@
 ##### ✅ What is it?
 A network-based socket that uses IP + Port for communication over TCP.
 
+🔧 Example
 ```bash
 # Python (Gunicorn)
 gunicorn --bind 0.0.0.0:8000 myproject.wsgi:application
