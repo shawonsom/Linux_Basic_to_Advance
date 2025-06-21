@@ -42,3 +42,5 @@ DevOps তো Development আর Operations একসাথে করে ডে�
 
 Thanks to Md. Nure Alam Siddiq\
 #bongoDev
+
+https://medium.com/@rohit-m-s/how-i-saved-my-startup-over-12-000-a-year-on-aws-68f9c4596549
