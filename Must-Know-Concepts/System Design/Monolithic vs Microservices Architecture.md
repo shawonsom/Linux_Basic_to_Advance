@@ -8,10 +8,10 @@ hashtag#Example: আপনার একটি ইনভেন্টরি ম্
 ✅ ডেটাবেস\
  সবকিছু মিলেই একটি থ্রি-টিয়ার অ্যাপ্লিকেশন (Three-Tier Architecture)।
 
-কিন্তু Monolithic Architecture সমস্যা হলো...\
-1. Scalability Issue: একটি ফিচার স্কেল করতে পুরো অ্যাপ স্কেল করতে হয়.\
-2. Deployment Risk: ছোট বাগ ফিক্স করতে গেলেও পুরো অ্যাপের downtime.\
-3. Team Conflict: এক কোডবেইজে ৫০+ ডেভেলপার মানেই কোড কনফ্লিক্ট.\
+কিন্তু Monolithic Architecture সমস্যা হলো...
+1. Scalability Issue: একটি ফিচার স্কেল করতে পুরো অ্যাপ স্কেল করতে হয়.
+2. Deployment Risk: ছোট বাগ ফিক্স করতে গেলেও পুরো অ্যাপের downtime.
+3. Team Conflict: এক কোডবেইজে ৫০+ ডেভেলপার মানেই কোড কনফ্লিক্ট.
 4. Tech Lock-in: সবকিছু একই প্রোগ্রামিং ভাষায় করতে হয়.
 
 
