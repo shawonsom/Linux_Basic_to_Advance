@@ -24,3 +24,6 @@ What is the সমাধান? \
 - Contact Manager 
 
 **Note:** প্রতিটি মাইক্রোসার্ভিস আলাদা করে স্কেল, deploy, manage করা যায় - without affecting the others. Monolith ভালো শুরুতে, Microservices ভালো scalability, agility, and modern DevOps practices-এর জন্য।
+
+<img width="744" height="462" alt="image" src="https://github.com/user-attachments/assets/66e51bf6-8e38-4d66-a473-760c4b5fd8ea" />
+
