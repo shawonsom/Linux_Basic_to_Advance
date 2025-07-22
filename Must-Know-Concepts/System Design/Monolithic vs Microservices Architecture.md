@@ -14,8 +14,6 @@ hashtag#Example: আপনার একটি ইনভেন্টরি ম্
 3. Team Conflict: এক কোডবেইজে ৫০+ ডেভেলপার মানেই কোড কনফ্লিক্ট.\
 4. Tech Lock-in: সবকিছু একই প্রোগ্রামিং ভাষায় করতে হয়.
 
-<img width="744" height="462" alt="image" src="https://github.com/user-attachments/assets/93af8bf6-d243-444d-b681-c9e63c4e323e" />
-
 
 What is the সমাধান? \
 সমাধান is Microservices Architecture. প্রতিটি কাজ আলাদা আলাদা সার্ভিসে ভাগ করে ফেলা -\
