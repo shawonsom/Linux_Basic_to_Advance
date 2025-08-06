@@ -1,5 +1,5 @@
 
-### 🔹 1. What is a Namespace?
+## What is a Namespace?
 ➤ **Namespace = Isolation**  
 Namespaces in Linux isolate system resources so that one container can't see or affect another — or the host system.
 
@@ -38,7 +38,7 @@ It also has its own virtual network stack (net namespace).
 
 ---
 
-### 🔸 2. What is a cgroup (Control Group)?
+## What is a cgroup (Control Group)?
 ➤ **cgroup = Resource Control**  
 cgroups limit or track how much of the host system’s resources (CPU, memory, IO, etc.) a container can use.
 
