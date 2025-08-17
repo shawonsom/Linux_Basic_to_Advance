@@ -140,4 +140,41 @@ rpm -qa | grep package_name
   sudo dnf autoremove
   ```
 
+### Automatic Installation (APT)
+Purpose: APT resolves dependencies automatically and for the latest version add fficial repository.
+- Installing Oldest or Latest
+```sh
+sudo apt update
+sudo apt install docker-ce
+```
+- Installing Latest
+```sh
+# Add Docker’s GPG key and repo
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+- PPA (Personal Package Archive)
+- Signed Custom Repository
+
+### Manual Installation (.deb or Source)
+
+- Manual Installation via `.deb` Files Installation
+
+```bash
+# Step 1: Download the package
+wget https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-linux-amd64.deb
+
+# Step 2: Install using dpkg
+sudo dpkg -i rclone-v1.62.2-linux-amd64.deb
+
+# Step 3: Resolve dependencies
+sudo apt --fix-broken install
+
+# Step 4: Verify installation
+rclone version
+```
+- Manual Source Compilation
+- Local Repository for Offline Use
 
