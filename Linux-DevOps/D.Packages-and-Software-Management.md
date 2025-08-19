@@ -140,14 +140,22 @@ rpm -qa | grep package_name
   sudo dnf autoremove
   ```
 
-### Automatic Installation (APT)
+### Automatic Installation (APT) | APT-based installation (repo-managed)
 Purpose: APT resolves dependencies automatically and for the latest version add fficial repository.
 - Installing Oldest or Latest
 ```sh
 sudo apt update
 sudo apt install docker-ce
+sudo apt install nginx -y
 ```
-- Installing Latest
+- Installing Latest | Signed Custom Repository
+  - A custom repository is when you add a third-party software vendor’s repository to your system.
+  - “Signed” means the repo’s packages are verified with a GPG key, so Ubuntu trusts them.
+  - GPG stands for GNU Privacy Guard | A GPG key is a digital signature tool used for encryption and verification.
+  - This is the official way vendors distribute their software outside of Ubuntu’s default repos.
+  - The package really comes from the trusted developer/repository.
+  - The package was not tampered with during download.
+
 ```sh
 # Add Docker’s GPG key and repo
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -155,12 +163,28 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 ```
-- PPA (Personal Package Archive)
-- Signed Custom Repository
+- Installing Latest | PPA (Personal Package Archive)
 
-### Manual Installation (.deb or Source)
+  - A PPA is a software repository hosted on Launchpad (Ubuntu’s community repo system).
+  - Developers use PPAs to publish newer or custom versions of software that aren’t available in Ubuntu’s default repositories.
+  - Installed with add-apt-repository
 
-- Manual Installation via `.deb` Files Installation
+```bash
+# Add the PPA for Git
+sudo add-apt-repository ppa:git-core/ppa -y
+
+# Update package list
+sudo apt update
+
+# Install Git from the PPA (newer than Ubuntu’s default repo)
+sudo apt install git -y
+
+# Check version
+git --version
+```
+
+### Manual Installation (.deb or Source) | Manual Installation via `.deb` Files Installation
+Purpose: Usually downloaded manually for specific versions
 
 ```bash
 # Step 1: Download the package
@@ -175,6 +199,73 @@ sudo apt --fix-broken install
 # Step 4: Verify installation
 rclone version
 ```
-- Manual Source Compilation
-- Local Repository for Offline Use
+### Tarball (source code) installation | Manual Source Compilation
+Purpose: Download source code, compile, and install.
+# Update system
+sudo apt update -y
+sudo apt upgrade -y
+
+# Install dependencies
+
+```bash
+sudo apt install -y build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    wget \
+    curl \
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libffi-dev \
+    liblzma-dev \
+    git
+
+# Download Python 3.8.20
+wget https://www.python.org/ftp/python/3.8.20/Python-3.8.20.tgz
+
+# Extract
+tar -xzf Python-3.8.20.tgz
+cd Python-3.8.20
+
+# Configure build
+./configure --enable-optimizations
+
+# Compile & install
+make -j$(nproc)
+sudo make altinstall   # prevents overwriting default 'python3'
+
+# Create symlinks
+sudo ln -s /usr/local/bin/python3.8 /usr/bin/python3.8
+sudo ln -s /usr/local/bin/pip3.8 /usr/bin/pip3.8
+
+# Verify
+python3.8 --version
+pip3.8 --version
+
+```
+### Tarball (binary release) installation
+Purpose: The software is distributed as a compressed .tar.gz containing a prebuilt binary. You extract and move the binary manually.
+```bash
+wget https://get.helm.sh/helm-v3.10.3-linux-amd64.tar.gz
+tar -zxvf helm-v3.10.3-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/
+helm version
+```
+
+```bash
+wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.12+7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.12_7.tar.gz
+tar -xvzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.12_7.tar.gz
+sudo mv jdk-17.0.12+7 /usr/local/java17
+echo 'export PATH=$PATH:/usr/local/java17/bin' >> ~/.bashrc
+source ~/.bashrc
+java -version
+```
+
+
+### Local Repository for Offline Use
 
