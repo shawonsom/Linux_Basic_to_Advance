@@ -189,11 +189,11 @@ rclone version
 ```
 ### Tarball (source code) installation | Manual Source Compilation
 Purpose: Download source code, compile, and install.
-# Update system
+##### Update system
 sudo apt update -y
 sudo apt upgrade -y
 
-# Install dependencies
+##### Install dependencies
 
 ```bash
 sudo apt install -y build-essential \
