@@ -111,9 +111,6 @@ rpm -qa | grep package_name
 +----------------+----------------+-------------------+------------------+
 ```
 
-![Package Managers Comparison](package-managers.png)
-
----
 
 #### ✅ Best Practices
 
@@ -127,6 +124,9 @@ rpm -qa | grep package_name
   ```
   sudo dnf autoremove
   ```
+
+
+## Ubuntu
 
 ### Automatic Installation (APT) | APT-based installation (repo-managed)
 Purpose: APT resolves dependencies automatically and for the latest version add fficial repository.
