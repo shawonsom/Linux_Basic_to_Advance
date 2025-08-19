@@ -1,4 +1,4 @@
-- [4.Packages and Software Management]()
+## Packages and Software Management
   - Package Management Distribution - pacman,zypper,rpm,yum,dpkg,apt and apt-get
   - DPKG (Debian and Ubuntu Based Distros) and APT (Advanced Package Tool)
   - Repository File | /etc/apt/sources.list
@@ -14,18 +14,6 @@
      - Suse Based Systems
      - Arch Based Systems
 
-
-
-
-### 📦 AlmaLinux 9.5 Package Management Training Guide
-
-This training guide covers:
-- Installing, updating, and managing packages using `yum` / `dnf`
-- Manual package installation (`rpm`)
-- Comparison: `apt` vs `dpkg` vs `yum/dnf` vs `rpm`
-- Visual Diagram for understanding!
-
----
 
 #### 🧩 Package Managers Overview
 
