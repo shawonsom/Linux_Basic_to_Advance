@@ -4,11 +4,11 @@
 log_file="user_log.txt"
 
 # Group to create
-group_name="teamoperation"
+group_name="new_group"
 
 # Array of users and passwords
-users=("azizul" "ishmam" "shahriar" "ahad" "omar" "khalil" "faysal")
-passwords=("Azizul@1234" "Ishm@m4567" "Sh@hriAr1234" "Ah@d9384" "Om@r1234" "Kh@lil629" "f@ys@L1234")
+users=("test1" "user2")
+passwords=("test@1234" "user4567")
  
 # Check if the number of users and passwords match
 if [ ${#users[@]} -ne ${#passwords[@]} ]; then
