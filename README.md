@@ -1,5 +1,16 @@
 # linux
 linux bash script
+## Auto archive Folder and files
+you can archive folder and alll files includeing the folder using blow script. 
+just need to check the derevtory and backup time
+
+```bash
+sh auto_archive.sh
+```
+// * sample Screenshot
+
+
+
 
 ## Server Health check and ferformance
 You can run the script using:

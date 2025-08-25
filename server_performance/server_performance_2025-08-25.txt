@@ -1,0 +1,31 @@
+
+[1;36m[1m[4mIP Address[0m
+10.12.31.252
+
+[1;36m[1m[4mHostname[0m
+[0;32mgemini[0m
+
+[1;36m[1m[4mCPU Uptime[0m
+3 days
+
+[1;36m[1m[4mMemory Usage[0m
+Total Memory  : [0;32m1.22 GB (B[m
+RAM Usage     : [0;32m66.1%[0m
+
+[1;36m[1m[4mDisk Usage[0m
+  Filesystem  : [0;32m/dev/mapper/rl-root[0m
+  Size        : [0;32m13G[0m
+  Used        : [0;32m9.2G[0m
+  Available   : [0;32m3.3G[0m
+  Use%        : [0;32m74%[0m
+
+[1;36m[1m[4mCPU Utilization[0m
+  CPU Usage    : [0;32m6.0%[0m
+  Load Average : [0;32m0.22 1.50 3.33[0m (1m, 5m, 15m)
+  CPU Cores    : [0;32m2[0m
+
+[1;36m[1m[4mLoad Average[0m
+Load Average  : [0;32m0.22 1.50 3.33[0m
+
+[1;36m[1m[4mResponse Time[0m
+Response Time : [0;32m0.014648s[0m
