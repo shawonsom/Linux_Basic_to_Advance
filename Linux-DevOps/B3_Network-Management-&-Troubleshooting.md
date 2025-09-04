@@ -18,7 +18,7 @@ telnet 192.168.1.1 22          # Test SSH connectivity
 telnet example.com 443         # Test HTTPS connectivity
 
 # Exit telnet
-Ctrl+] then type 'quit'
+Ctrl+] then type 'quit' or 'q'
 ```
 
 **Common Uses:**
