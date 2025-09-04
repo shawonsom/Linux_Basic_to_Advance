@@ -1,8 +1,7 @@
-```markdown
-# Common Linux System Information Commands
+### Common Linux System Information Commands
 
-## System Identification
-- **Check Hostname**: `hostname` or `hostnamectl`
+### System Identification
+ **Check Hostname**: `hostname` or `hostnamectl`
 - **Set Hostname**: `hostnamectl set-hostname msi-linux.com`
 
 ## System Version Information
