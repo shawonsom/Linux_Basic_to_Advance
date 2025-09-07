@@ -1,16 +1,3 @@
-- [3.Administering Users and Groups](#3Administering-Users-and-Groups)
-  - [Linux User](#Linux-User-Management)
-  - Creating and managing users and groups
-    - id
-    - add
-    - delete
-    - modify
-    - lock
-    - adduser vs useradd 
-  - Understanding /etc/passwd | /etc/shadow | /etc/group
-  - Creating, changing, and removing user accounts (useradd, usermod, userdel)
-  - Sudo Group, Permissions and setting up user privileges and **sudousers** file for a user
-  - User account monitoring (whoami, who am i, who, id, w, uptime, last)   
 
 
 ### Linux User Management
@@ -105,3 +92,81 @@ Linux User Type’s   \                                                         
 | Display user ID | `id username` |
 | Show last system reboot | `last reboot` |
 | Show system uptime | `uptime` |
+### 9. File Permissions in Linux
+
+Linux permissions control access to files and directories for three classes of users: **User** (owner), **Group**, and **Others**.
+
+### Viewing Permissions: `ls -l`
+```bash
+$ ls -l important_file.txt
+-rwxr-xr-- 1 alice developers 2048 Jun 10 14:30 important_file.txt
+```
+`-rwxr-xr--` is the permission string. Let's break it down:
+
+**The first character:** File type
+*   `-` = Regular file
+*   `d` = Directory
+*   `l` = Symbolic link
+
+**In our example (`-rwxr-xr--`):**
+*   It's a regular file (`-`).
+*   The **owner** (`alice`) can read, write, and execute it (`rwx`).
+*   The **group** (`developers`) can read and execute it (`r-x`).
+*   **All other users** can only read it (`r--`).
+
+### Changing Permissions: `chmod`
+
+You can change permissions using either **symbolic** or **numeric** (octal) mode.
+
+#### Symbolic Mode
+Uses letters and operators: `u` (user), `g` (group), `o` (others), `a` (all); `+` (add), `-` (remove), `=` (set exactly); `r`, `w`, `x`.
+
+```bash
+# Add execute permission for the group
+chmod g+x script.sh
+
+# Remove read permission for others
+chmod o-r document.txt
+
+# Set permissions to rwx for user and r-x for group and nothing for others
+chmod u=rwx,g=rx,o= myfile
+
+# Give everyone write permission
+chmod a+w shared_file.txt
+```
+
+#### Numeric (Octal) Mode
+More common and concise. Each permission is assigned a number:
+*   `r` (Read) = 4
+*   `w` (Write) = 2
+*   `x` (Execute) = 1
+
+Add the numbers for the permissions you want for each class (User, Group, Other).
+
+**Example: `chmod 754 script.sh`**
+*   **User (7)**: 4 (r) + 2 (w) + 1 (x) = `rwx`
+*   **Group (5)**: 4 (r) + 0 + 1 (x) = `r-x`
+*   **Other (4)**: 4 (r) + 0 + 0 = `r--`
+
+**Common Permission Values:**
+*   `755` - `rwxr-xr-x`: Common for directories and executables. Owner has full access, everyone else can read and execute.
+*   `644` - `rw-r--r--`: Common for files. Owner can read/write, everyone else can only read.
+*   `777` - `rwxrwxrwx`: **Full access for everyone.** **Use with extreme caution!** It's a security risk.
+*   `700` - `rwx------`: Private. Only the owner can read, write, or execute. No one else has any access.
+
+### Changing Ownership: `chown` and `chgrp`
+
+*   `chown` (Change Owner): Changes the user and group owner of a file.
+    ```bash
+    # Change the owner to 'alice'
+    sudo chown alice file.txt
+
+    # Change the owner to 'alice' and the group to 'developers'
+    sudo chown alice:developers file.txt
+    ```
+*   `chgrp` (Change Group): Changes only the group owner of a file.
+    ```bash
+    # Change the group to 'developers'
+    sudo chgrp developers file.txt
+    ```
+> **Note:** Changing ownership typically requires `sudo` privileges.
