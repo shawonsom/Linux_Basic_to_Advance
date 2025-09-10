@@ -1,234 +1,250 @@
-<img src="https://github.com/user-attachments/assets/3649ecd8-62dc-4ba9-baae-06bbb9246fe0" width="700" height="350"/>
+# Linux File & Directory Permissions and Ownership
 
+## Table of Contents
+1. [Introduction to Permissions](#introduction-to-permissions)
+2. [Understanding Permission Notation](#understanding-permission-notation)
+3. [Changing Permissions with chmod](#changing-permissions-with-chmod)
+4. [Changing Ownership with chown](#changing-ownership-with-chown)
+5. [Special Permissions](#special-permissions)
+6. [Access Control Lists (ACL)](#access-control-lists-acl)
+7. [umask - Default Permissions](#umask-default-permissions)
+8. [Practical Examples](#practical-examples)
 
-- [ ] [File/Dir Permissions and Ownership](#FileDir-Permission-and-Ownership)
-  - [File/Directory Permission and Ownership](#FileDir-Permission-and-Ownership)
-  - [Advanced File Permission Concepts](#Advanced-File-Permission-Concepts)
-    - File/Dir Permission with Umask
-    - Advanced File Permission with Access Control Lists (ACL)
-    - Special permissions - Setuid, Setgid, and Sticky Bit
+## Introduction to Permissions
 
-### 🚀File/Dir Permissions and Ownership
+Linux is a multi-user system where file permissions determine who can access files and directories and what operations they can perform. The permission system ensures security and privacy by controlling access to resources.
 
-<p align="justify">
+![Multi-user Environment](https://via.placeholder.com/600x300?text=Linux+Multi-User+Environment)
 
-Unix-like operating systems, such as Linux, running on shared high-performance computers use settings called permissions to determine who can access and modify the files and directories stored in their file systems. Each file and directory in a file system is assigned "owner" and "group" attributes.
+## Understanding Permission Notation
 
-Most commonly, by default, the user who creates a file or directory is set as owner of that file or directory. When needed (for example, when a member of your research team leaves), the system's root administrator can change the user attribute for files and directories.
+### Basic Permission Structure
+Linux uses a 10-character notation to represent permissions:
 
-The group designation can be used to grant teammates and/or collaborators shared access to an owner's files and directories, and provides a convenient way to grant access to multiple users.
-</p>
+```
+-rwxr-xr--
+│└─┰─┰─┰─┰─┰─┰─┰─┰─┘
+│  │ │ │ │ │ │ │ └── Others: Read permission
+│  │ │ │ │ │ │ └──── Others: Write permission
+│  │ │ │ │ │ └────── Others: Execute permission
+│  │ │ │ │ └──────── Group: Read permission
+│  │ │ │ └────────── Group: Write permission
+│  │ │ └──────────── Group: Execute permission
+│  │ └────────────── User: Read permission
+│  └──────────────── User: Write permission
+└─────────────────── User: Execute permission
+```
 
-- [ ] 🔴Permissions are applied on three levels:- 
-    * Owner or User level  `u`
-    * Group level  `g`
-    * Others level `o` & `a` for all users
+### File Type Indicators
+The first character indicates the file type:
+- `-` Regular file
+- `d` Directory
+- `l` Symbolic link
+- `c` Character device
+- `b` Block device
+- `p` Named pipe
+- `s` Socket
+
+### Permission Characters
+- `r` Read permission (value 4)
+- `w` Write permission (value 2)
+- `x` Execute permission (value 1)
+- `-` No permission (value 0)
+
 ![image](https://github.com/user-attachments/assets/f70e2ade-4081-4ec1-b1c3-bdf071984a6f)
+## Changing Permissions with chmod
 
-- [ ] 🔴Access modes - Each file or directory has three basic permission types
-    * **r** - read only 
-    * **w** - write/edit/delete/append 
-    * **x** - execute/run a command 
- 
-- [ ] 🔴Access modes are different on file and directory:- 
+### Symbolic Method
+```bash
+chmod u+x script.sh        # Add execute permission for user
+chmod g-w file.txt         # Remove write permission for group
+chmod o=r file.txt         # Set others to read only
+chmod a+x script.sh        # Add execute for all (user, group, others)
+chmod u=rwx,g=rx,o= file.txt  # Set specific permissions for each
+```
 
-| Permissions | Files           | Directory |
-|:-----: |:---         |:---   |
-| r | Open the file | 'ls' the contents of dir |
-| w | Write, edit, append, delete file | Add/Del/Rename contents of dir |
-| x | To run a command/shell script | To enter into dir using 'cd' |
+### Octal/Numeric Method
+```bash
+chmod 755 script.sh        # rwxr-xr-x
+chmod 644 file.txt         # rw-r--r--
+chmod 600 secret.txt       # rw-------
+chmod 777 open.txt         # rwxrwxrwx (not recommended for security)
+```
 
-- [ ] 🔴Using Binary References to Set permissions
-
-| Binary Reference | Meaning |
-|------------------|---------|
-| `4`              | Read    |
-| `2`              | Write   |
-| `1`              | Execute |
-
-
-
-- [ ] 🔴There are 2 ways to use the command -
-
-   - [ ] **Absolute mode**
-   - [ ] **Symbolic mode**
-
-       🧩[Absolute mode]()
-
-In this mode, file permissions are not represented as characters but a three-digit octal number. The table below gives numbers for all for permissions types.
-
-| Number |	Permission Type	| Symbol |
-| :----: |  :-----|  :----:|
-| 0	 |No Permission |	---  |
-| 1	| Execute	| --x |
-| 2	| Write	|-w- |
-| 3	| Execute + Write	|-wx |
-| 4	| Read	| r-- |
-| 5	| Read + Execute |	r-x |
-| 6	| Read +Write |	rw- | 
-| 7	| Read + Write +Execute |	rwx | 
-
-⚡**Command**\
-`chmod 764 samplefile`\
-`chmod 777 samplefile` - Assigning full permission to the file i.e. rwx to all
-      🧩[Symbolic Mode]()
-
-In the Absolute mode, you change permissions for all 3 owners. In the symbolic mode, you can modify permissions of a specific owner. It makes use of mathematical symbols to modify the file permissions.
-
-| Operator	| Description |
-| :---: |:--|
-|+ |	Adds a permission to a file or directory|
-|-	| Removes the permission|
-|=	|Sets the permission and overrides the permissions set earlier.|
-
-⚡**Command**\
-`chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r)\
-`chmod u=rwx,g=rw,o=r samplefile` (user=rwx, group=rw and others=r) \
-`chmod u=rwx,g+wx,o-x samplefile`\
-`chmod ugo=rwx samplefile` - Assigning full permission to the file i.e. rwx to all\
-`chmod u+x samplefile` - Adding execute permission to user only\
-`chmod go-wx samplefile` - Removing write and execute permissions from group and other\
-`chmod go+wx samplefile` - Adding write and execute permissions from group and other\
-`chmod go=r samplefile` - Giving only read permission to group and other
-
-⚡**Random Command**\
-`ls -al /path/to/file/or/dir` 	   	- Check current permissions\
-`chmod 755 file-name` 			   	    - Set owner have full permission group and other users has only read and execute permission.\
-`chmod u+x your_script.sh` 		   	  - Set execute permission for the owner only.\
-`chmod u+rwx test-file` 			      - Provide full access to owners\
-`chmod ugo+r-x test-file` 		   	  - Provide Read access to Owners, groups and others, Remove execute access\
-`chmod o-rwx test-file` 			      - Remove all access for others\
-`chmod u+rwx,g+r-x,o-rwx test-file` - Full access for Owner, add read , remove execute for group and no access for others\
-`chmod 777 test-file` 			   	    - Provide full access to Owners, group and others\
-`chmod 660 test-file` 			   	    - Read and Write access for Owner and Group, No access for others.\
-`chmod 750 test-file` 			   	    - Full access for Owner, read and execute for group and no access for others.\
-`chown bob:developer test-file` 	  - Changes owner to bob and group to developer\
-`chown bob andoid.apk` 			   	    - Changes just the owner of the file to bob. Group unchanged\
-`chgrp android test-file` 		   	  - Change the group for the test-file to the group called android\
-`chown -R msi:msi /dir` 		       	- Append -R for recursive syntax (include sub files and directories)\
-`chmod -u+r,g-w,o-rwx` 			   	    - Multiple permissions at once\
-`chmod +rwx filename`\
-`chmod +x filename`\
-`chmod u-rwx`\						
-`chmod g-rwx`\
-`chmod o-rwx`\
-`chmod a-rwx`\
-`chmod 000`
-
-### 🚀Advanced File Permission Concepts
-
-<img src=https://github.com/user-attachments/assets/19733486-3857-4b70-86d5-872cbc2f6b95 height="250" width="900"/>
-
-#### 🔴[File/Dir Permission with Umask]()
-
-Linux uses **permissions** to control who can **read**, **write**, or **execute** files and directories. **Umask** sets the default permissions for new files and directories by removing some permissions to improve security.
-
-##### Basic Permissions
-
-- **Read (`r`)**: View content.
-- **Write (`w`)**: Modify content.
-- **Execute (`x`)**: Run files or access directories.
-
-Each file has three permission sets for:
-1. **User (Owner)**
-2. **Group**
-3. **Others**
-
-Permissions are shown as `rwxr-xr--` (User/Group/Others).
-
-##### What is Umask?
-
-**Umask** stands for **User Mask**. It subtracts permissions from the default settings for new files and directories, helping secure them automatically.
-
-- **Default Permissions**:
-  - **Files**: `666` (read/write for everyone) – no execute by default.
-  - **Directories**: `777` (read/write/execute for everyone).
-
-The umask value is subtracted from the default permissions. Here’s a step-by-step example to see it in action.
-
-##### Example 1: Umask `022`
-
-1. **Determine Default Permissions**:
-   - Files: `666`
-   - Directories: `777`
-
-2. **Apply the Umask (`022`)**:
-   - Subtract each umask digit from the default permission digit:
-     - `6 - 0 = 6`
-     - `6 - 2 = 4`
-     - `6 - 2 = 4`
-
-3. **Resulting Permissions**:
-   - New files: `644` (read and write for user, read-only for group and others).
-   - New directories: `755` (full access for user, read and execute for group and others).
-
-##### Commands to Check and Set Umask
-
-- **View Current Umask**:
-  ```bash
-  umask
-  ```
-- **Set a New Umask**:
-  ```bash
-  umask 027
-   ```      
-
-#### 🔴[Advanced File Permission with Access Control Lists (ACL)]()
-
-ACLs provide finer-grained control over file and directory permissions, allowing specific permissions for individual users and groups beyond standard user, group, and other permissions.
-
-`apt install acl -y`
-
-##### Key Commands and Examples
-1. **Setting ACL for a User**
-   - Grant read, write, and execute permissions to `user1` for `file.txt`:
-     ```bash
-     setfacl -m u:user1:rwx file.txt
-     ```
-2. **Setting ACL for a Group**
-   - Grant read and execute permissions to `group1` for `file.txt`:
-     ```bash
-     setfacl -m g:group1:rx file.txt
-     ```
-3. **Default ACL for a Directory**
-   - Set default permissions for new files in `dir1` so `user2` has read and write access:
-     ```bash
-     setfacl -d -m u:user2:rw dir1
-     ```
-4. **Removing an ACL Entry**
-   - Remove ACL permissions for `user1` on `file.txt`:
-     ```bash
-     setfacl -x u:user1 file.txt
-     ```
-5. **Viewing ACLs**
-   - Display ACL entries for a file or directory:
-     ```bash
-     getfacl file.txt
-     ```
-6. **Setting ACL for Multiple Users and Groups**
-   - Allow `user1` and `group1` read-only permissions on `dir1`:
-     ```bash
-     setfacl -m u:user1:r g:group1:r dir1
-     ```
-7. **Granting ACL for Others**
-   - Set read-only permissions for others on `file.txt`:
-     ```bash
-     setfacl -m o::r file.txt
-     ```
-## Additional Tips
-
-- **usermod**: Modify user attributes, e.g., adding `user1` to `group1`:
-  ```bash
-  usermod -aG group1 user1
-
-##### More Commands and Examples
-
-- `setfacl -x saiful file/directory`  	    - remove only specified ACL from file/directory.
-- `setfacl -x u:saiful file/directory`      - remove only specified ACL from file/directory.
-- `setfacl -b  file/directory`   		        - removing all ACL from file/direcoty 
-- `setfacl -R -m g:groupname:+x testfolder/`- To add groupname to have recursive +execute on testfolder
-- `setfacl -m d:g:groupname:rw testfolder/` - To add default group access right to read and write on testfolder folder 
+### Common Permission Values
+- `755` - User: rwx, Group: r-x, Others: r-x (executables, directories)
+- `644` - User: rw-, Group: r--, Others: r-- (regular files)
+- `600` - User: rw-, Group: ---, Others: --- (private files)
+- `777` - User: rwx, Group: rwx, Others: rwx (fully open - use with caution)
 
 
-#### 🔴[Special permissions - Setuid, Setgid, and Sticky Bit]()
 
+## Changing Ownership with chown
+
+### Basic Syntax
+```bash
+chown user file.txt          # Change owner only
+chown user:group file.txt    # Change both owner and group
+chown :group file.txt        # Change group only
+```
+
+### Recursive Ownership Changes
+```bash
+chown -R user:group /path/to/directory  # Change ownership recursively
+```
+
+### Using User and Group IDs
+```bash
+chown 1000:1000 file.txt     # Change using UID and GID
+```
+
+
+
+## Special Permissions
+
+### Set User ID (SUID)
+- Represented as `s` in user execute position
+- When set on an executable, it runs with the owner's privileges
+- Set with `chmod u+s file` or `chmod 4755 file`
+
+```bash
+chmod u+s /usr/bin/program
+```
+
+### Set Group ID (SGID)
+- Represented as `s` in group execute position
+- When set on a directory, new files inherit the directory's group
+- Set with `chmod g+s directory` or `chmod 2755 directory`
+
+```bash
+chmod g+s /shared/directory
+```
+
+### Sticky Bit
+- Represented as `t` in others execute position
+- When set on a directory, only owners can delete their own files
+- Commonly used on /tmp directory
+- Set with `chmod +t directory` or `chmod 1755 directory`
+
+```bash
+chmod +t /shared/uploads
+```
+
+
+## Access Control Lists (ACL)
+
+ACLs provide more granular permission control beyond standard user/group/others.
+
+### View ACLs
+```bash
+getfacl file.txt
+```
+
+### Set ACLs
+```bash
+setfacl -m u:username:rwx file.txt      # Add user ACL
+setfacl -m g:groupname:rx file.txt      # Add group ACL
+setfacl -m o::r file.txt                # Set others permissions
+setfacl -x u:username file.txt          # Remove user ACL
+```
+
+### Default ACLs (for directories)
+```bash
+setfacl -d -m u:username:rwx directory/  # Set default ACL
+```
+
+
+
+## umask - Default Permissions
+
+The umask value determines default permissions for newly created files and directories.
+
+### View Current umask
+```bash
+umask          # Symbolic format
+umask -S       # Symbolic representation of current permissions
+```
+
+### Set umask
+```bash
+umask 022      # Common default - files: 644, directories: 755
+umask 002      # Permissive - files: 664, directories: 775
+umask 077      # Restrictive - files: 600, directories: 700
+```
+
+### How umask Works
+- For files: 666 - umask
+- For directories: 777 - umask
+- Example: umask 022 results in:
+  - Files: 666 - 022 = 644 (rw-r--r--)
+  - Directories: 777 - 022 = 755 (rwxr-xr-x)
+
+## Practical Examples
+
+### Secure Configuration File
+```bash
+touch config.conf
+chmod 600 config.conf        # Only owner can read/write
+chown root:root config.conf  # Owned by root
+```
+
+### Shared Directory for Team
+```bash
+mkdir /shared/team
+chown root:team /shared/team
+chmod 2770 /shared/team      # SGID set, group read/write/execute
+```
+
+### Web Server Directory
+```bash
+chown -R www-data:www-data /var/www/html
+find /var/www/html -type f -exec chmod 644 {} \;   # Files: rw-r--r--
+find /var/www/html -type d -exec chmod 755 {} \;   # Directories: rwxr-xr-x
+```
+
+### User Script with SUID
+```bash
+chown root:users custom_script.sh
+chmod 4750 custom_script.sh  # SUID set, root owner, group read/execute
+```
+
+### Temporary Upload Directory
+```bash
+mkdir /uploads
+chown www-data:www-data /uploads
+chmod 1777 /uploads          # Sticky bit set, full permissions for all
+```
+
+
+## Best Practices
+
+1. **Principle of Least Privilege**: Grant only necessary permissions
+2. **Regular Audits**: Periodically review permissions on critical files
+3. **Use Groups**: Manage access through groups rather than individual users
+4. **Avoid 777**: Never use 777 permissions on production systems
+5. **SUID/SGID Caution**: Use special permissions sparingly and understand the risks
+6. **Document Changes**: Keep records of permission modifications
+7. **Backup Before Changes**: Always backup before making bulk permission changes
+
+## Troubleshooting Common Issues
+
+### Permission Denied Errors
+```bash
+# Check current permissions
+ls -l filename
+
+# Check user and group ownership
+ls -n filename  # Show UID and GID
+
+# Check if user is in the required group
+groups username
+```
+
+### Incorrect Inheritance
+```bash
+# Check for SGID on parent directory
+ls -ld parent_directory
+
+# Check ACLs if permissions aren't as expected
+getfacl filename
+```
