@@ -1,4 +1,4 @@
-- [6.File and Directory Management](#6file-and-directory-management)
+- [File and Directory Management](#file-and-directory-management)
   - [Linux File System Hierarchy](#Linux-File-System-Hierarchy) 
   - [Basic File and Directory Operations](#Basic-File-and-Directory-Operations)
   - [File/Directory Types](#filedirectory-types)
@@ -7,7 +7,7 @@
   - Understanding file timestamps: atime, mtime, ctime (stat, touch, date)
 
 
-### 🚀[6.File and Directory Management]()
+### 🚀[File and Directory Management]()
 
 
 ## Linux File System Hierarchy
