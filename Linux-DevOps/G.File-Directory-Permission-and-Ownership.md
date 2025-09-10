@@ -14,7 +14,7 @@
 
 Linux is a multi-user system where file permissions determine who can access files and directories and what operations they can perform. The permission system ensures security and privacy by controlling access to resources.
 
-![Multi-user Environment](https://via.placeholder.com/600x300?text=Linux+Multi-User+Environment)
+
 
 ## Understanding Permission Notation
 
@@ -248,3 +248,4 @@ ls -ld parent_directory
 # Check ACLs if permissions aren't as expected
 getfacl filename
 ```
+
