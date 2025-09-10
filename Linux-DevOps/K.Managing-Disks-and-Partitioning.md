@@ -1,218 +1,591 @@
-## Managing Disks and Partitioning
-  - Device - SSD | HDD | USB | Nvme
-  - Filesystem Types - ext4, XFS | Block,File,Object
-  - Partition Management
-  - Logical Volume Managemnt(LVM)
-  - Swap Partition
-  - Mount and Unmount
-  - lspci
-  - sscsi
-  - Block device
-  - SCSI device
-  - Raid
-  - LVM
-  - XFS
-  - EXT4
-  - NAS/NFS(Client & Server)
-  - SAMBA
-  - FTP
-  - iSCSI(Initiator & Target)
+# Linux Disk Management and Partitioning
+
+## Table of Contents
+1. [Introduction to Disk Management](#introduction-to-disk-management)
+2. [Disk Identification and Discovery](#disk-identification-and-discovery)
+3. [Partitioning Concepts](#partitioning-concepts)
+4. [Partitioning with fdisk](#partitioning-with-fdisk)
+5. [Partitioning with parted](#partitioning-with-parted)
+6. [Filesystem Creation](#filesystem-creation)
+7. [Mounting Filesystems](#mounting-filesystems)
+8. [Persistent Mounts with fstab](#persistent-mounts-with-fstab)
+9. [Disk Space Management](#disk-space-management)
+10. [Logical Volume Management (LVM)](#logical-volume-management-lvm)
+11. [RAID Configuration](#raid-configuration)
+12. [Disk Performance Monitoring](#disk-performance-monitoring)
+13. [Troubleshooting and Recovery](#troubleshooting-and-recovery)
+14. [Best Practices](#best-practices)
+
+## Introduction to Disk Management
+
+Linux disk management involves creating, modifying, and maintaining storage devices and their partitions. Understanding disk management is crucial for system administrators to ensure optimal storage utilization, performance, and data integrity.
+
+### Storage Concepts
+- **Block Devices**: Storage devices that read/write data in fixed-size blocks (e.g., /dev/sda, /dev/nvme0n1)
+- **Partitions**: Logical divisions of a physical disk
+- **Filesystems**: Structures that organize how data is stored on partitions
+- **Mount Points**: Directory locations where filesystems are accessed
+
+## Disk Identification and Discovery
+
+### Listing Block Devices
+```bash
+# List all block devices
+lsblk
+
+# Detailed block device information
+lsblk -f
+lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,FSTYPE,UUID
+
+# List all disks and partitions
+fdisk -l
+
+# List specific disk
+fdisk -l /dev/sda
+
+# Show SCSI/SATA devices
+lsscsi
+
+# Show USB devices
+lsusb
+
+# Show PCI devices (including storage controllers)
+lspci
+
+# Check disk information with hdparm
+hdparm -I /dev/sda
+```
+
+### Identifying Disk Types
+```bash
+# Check if device is rotational (HDD) or SSD
+cat /sys/block/sda/queue/rotational  # 1=HDD, 0=SSD
+
+# Check disk model and serial number
+smartctl -i /dev/sda
+
+# List NVMe devices
+nvme list
+
+# Check disk health
+smartctl -a /dev/sda
+```
+
+## Partitioning Concepts
+
+### Partition Tables
+- **MBR (Master Boot Record)**: Legacy standard, supports up to 2TB disks, 4 primary partitions
+- **GPT (GUID Partition Table)**: Modern standard, supports large disks, up to 128 partitions
+
+### Partition Types
+- **Primary Partition**: Bootable partition (MBR limitation: 4 primary)
+- **Extended Partition**: Container for logical partitions (MBR only)
+- **Logical Partition**: Partitions within extended partition
+- **EFI System Partition**: Required for UEFI boot (typically 100-500MB)
 
+## Partitioning with fdisk
+
+### Basic fdisk Operations
+```bash
+# Start fdisk for a disk
+fdisk /dev/sdb
 
-[Linux disk management terminology](https://www.computernetworkingnotes.com/linux-tutorials/linux-disk-management-tutorial.html)\
-File Management Commands in Linux\
-List view and find hard disk names in Linux\
-Linux file system types explained\
-The fdisk command on Linux explained\
-Manage Linux disk partition with the gdisk command\
-The /etc/fstab file on Linux explained\
-Linux disk management with the parted command\
-The mkfs command on Linux\
-The mount command on Linux temporary mounting\
-The swap space on Linux explained\
-How to create a swap partition in Linux\
-How to configure LVM in Linux step-by-step\
-How to configure RAID in Linux step-by-step\
-How to manage disk quota in Linux step-by-step\
+# Common fdisk commands:
+# n - Create new partition
+# d - Delete partition
+# p - Print partition table
+# t - Change partition type
+# w - Write changes and exit
+# q - Quit without saving
 
-https://github.com/kodekloudhub/linux-basics-course/tree/master/docs/08-Storage-in-Linux
+# Create a new partition
+fdisk /dev/sdb
+Command (m for help): n
+Partition type: p (primary)
+Partition number: 1
+First sector: (press Enter for default)
+Last sector: +10G (or specify size)
 
+# Change partition type
+Command (m for help): t
+Partition number: 1
+Hex code: 83 (Linux filesystem) or 8e (Linux LVM)
 
+# Verify changes
+Command (m for help): p
 
-<img src=https://github.com/user-attachments/assets/f37882a4-f020-48f2-a37d-d9c1c034b209 height="800" width="700"/>
+# Write changes
+Command (m for help): w
+```
 
+### Advanced fdisk Usage
+```bash
+# Create partition with specific size
+echo -e "n\np\n1\n\n+20G\nw" | fdisk /dev/sdb
 
-## Storage Management In Linux
+# Create multiple partitions
+echo -e "n\np\n1\n\n+10G\nn\np\n2\n\n+15G\nw" | fdisk /dev/sdb
 
-**How the disk is divided into partitions and how the information about these partitions is stored?**\
-MBR (Master Boot Record) and GPT (GUID Partition Table) are two different partitioning schemes used to organize and manage data on storage devices, particularly on hard disk drives (HDDs) and solid-state drives (SSDs).
+# Create swap partition
+echo -e "n\np\n3\n\n+4G\nt\n3\n82\nw" | fdisk /dev/sdb
 
+# Create GPT partition table
+echo -e "g\nn\n1\n\n+500M\nt\n1\nn\n2\n\n+30G\nw" | fdisk /dev/sdb
+```
 
+## Partitioning with parted
 
-### Overview of Key Terms
+### parted Basics
+```bash
+# Start parted
+parted /dev/sdb
 
-1. **BIOS (Basic Input/Output System)**:
-   - **Definition**: BIOS is the traditional firmware interface for computers. It initializes hardware during the boot process and provides runtime services for operating systems and programs.
-   - **Example**: Older PCs (pre-2010) typically use BIOS for booting.
+# Create GPT partition table
+(parted) mklabel gpt
 
-2. **UEFI (Unified Extensible Firmware Interface)**:
-   - **Definition**: UEFI is a modern replacement for BIOS. It offers a more advanced interface and greater capabilities such as secure boot, faster startup, and support for larger disk sizes.
-   - **Example**: Most modern computers and motherboards released after 2012 use UEFI.
+# Create partition
+(parted) mkpart primary ext4 1MiB 10GiB
 
-3. **MBR (Master Boot Record)**:
-   - **Definition**: MBR is a partitioning scheme that has been the standard for decades. It defines how the data is organized on a disk and is limited to 2 TB disk size and 4 primary partitions.
-   - **Example**: Older Windows installations (Windows XP, Vista) typically used MBR partitioning.
+# Set partition flag (e.g., boot flag)
+(parted) set 1 boot on
 
-4. **GPT (GUID Partition Table)**:
-   - **Definition**: GPT is the newer partitioning scheme, which is part of the UEFI standard. GPT supports larger disk sizes (up to 9.4 ZB) and allows up to 128 partitions.
-   - **Example**: Newer systems with UEFI firmware use GPT for partitioning.
+# Show partition information
+(parted) print
 
----
+# Resize partition
+(parted) resizepart 1 15GiB
 
-### Key Comparisons
+# Remove partition
+(parted) rm 1
 
-| Feature               | **BIOS**                             | **UEFI**                               | **MBR**                                | **GPT**                              |
-|-----------------------|--------------------------------------|----------------------------------------|----------------------------------------|--------------------------------------|
-| **Partitioning Scheme**| MBR only                             | MBR or GPT                             | MBR only                                | GPT only                             |
-| **Max Disk Size**      | 2 TB                                 | 9.4 ZB                                 | 2 TB                                   | 9.4 ZB                               |
-| **Max Partitions**     | 4 primary or 3 primary + 1 extended  | 128 partitions                         | 4 primary or 3 primary + 1 extended    | 128 partitions                       |
-| **Boot Mode**          | Legacy (BIOS)                       | UEFI (Unified Extensible Firmware Interface) | MBR bootloader                       | UEFI bootloader, requires GPT       |
-| **Secure Boot**        | No                                   | Yes                                    | No                                     | Yes                                  |
-| **Fast Boot**          | No                                   | Yes                                    | No                                     | Yes                                  |
-| **Compatibility**      | Works with legacy systems and operating systems | Works with modern systems and operating systems | Only supports MBR systems             | Only supports UEFI systems           |
+# Quit parted
+(parted) quit
+```
 
----
+### Non-interactive parted Usage
+```bash
+# Create GPT table
+parted /dev/sdb mklabel gpt
 
-`sudo fdisk -l /dev/sda`\
-`sudo gdisk /dev/sda`\
-`sudo parted -l`
+# Create EFI partition
+parted /dev/sdb mkpart primary fat32 1MiB 513MiB
+parted /dev/sdb set 1 esp on
 
-**What is a Partition?**
+# Create root partition
+parted /dev/sdb mkpart primary ext4 513MiB 20GiB
 
-Partition is a logical container which is used to house filesystems, where operating systems, applications, anddata is stored on. A single partition may span the entirety of a physical storage device.
+# Create home partition
+parted /dev/sdb mkpart primary ext4 20GiB 100%
+```
 
-**Types of Disk Partitions**
+## Filesystem Creation
 
-**There are three main types of partitions:**\
-Primary Partitions: Directly accessible and used for booting the system. A disk can have up to four primary partitions.\
-Extended Partitions: Created within a primary partition, acting as a container that can hold multiple logical partitions. This is a workaround for the four-partition limit.\
-Logical Partitions: Nested within an extended partition, allowing for more than four partitions on a disk.
+### Common Filesystems
+```bash
+# Create ext4 filesystem
+mkfs.ext4 /dev/sdb1
 
+# Create XFS filesystem
+mkfs.xfs /dev/sdb1
 
+# Create Btrfs filesystem
+mkfs.btrfs /dev/sdb1
 
-**What is a File System?**
+# Create FAT32 filesystem
+mkfs.fat -F32 /dev/sdb1
 
-A file system provides a way of separating the data on the drive into individual pieces, which are the files. Italso provides a way to store data about these files for example, their filenames, permissions, and otherattributes.
+# Create NTFS filesystem
+mkfs.ntfs /dev/sdb1
 
-Each partition can use a different file system (ext4, NTFS, FAT32, etc.), affecting performance, storage efficiency, and compatibility.
+# Create swap area
+mkswap /dev/sdb2
+swapon /dev/sdb2
 
-Tools for Disk Partitioning in Linux. Linux offers a plethora of tools for disk partitioning, including:
+# Filesystem with label
+mkfs.ext4 -L "DATA" /dev/sdb1
+```
 
-fdisk: A command-line utility ideal for MBR disks.\
-gdisk: Similar to fdisk but for GPT disks.\
-parted: A versatile tool that supports both MBR and GPT disks.
+### Filesystem Options
+```bash
+# Custom block size
+mkfs.ext4 -b 4096 /dev/sdb1
 
-**What is LVM?**
+# Reserved blocks percentage
+mkfs.ext4 -m 1 /dev/sdb1  # 1% reserved for root
 
-LVM is a more flexible approach to managing disk space. It allows for resizing partitions (logical volumes) on the fly, creating snapshots, and combining multiple physical disks into one large virtual one.
+# Journaling options
+mkfs.ext4 -O ^has_journal /dev/sdb1  # Without journal
 
+# Force creation
+mkfs.ext4 -F /dev/sdb1
+```
 
-Physical Volumes (PV): Physical disks or disk partitions.
-Volume Groups (VG): Collections of physical volumes, acting as a pool of disk space.
-Logical Volumes (LV): Segments of a volume group that are used by the system as individual partitions.
+## Mounting Filesystems
 
+### Basic Mounting
+```bash
+# Create mount point
+mkdir /mnt/data
 
-## Add a New Disk to your existing LVM 
+# Mount filesystem
+mount /dev/sdb1 /mnt/data
 
-- Partition the new drive (if necessary): If sdb is not already partitioned, you need to create a new partition on it.
+# Mount with options
+mount -o rw,noatime /dev/sdb1 /mnt/data
 
-- Create a physical volume (PV): Initialize the new partition or the whole disk as a physical volume for LVM.
+# Mount read-only
+mount -o ro /dev/sdb1 /mnt/data
 
-- Extend the volume group (VG): Add the new physical volume to your existing volume group.
+# Unmount filesystem
+umount /mnt/data
 
-- Extend the logical volumes (LVs): Expand your logical volumes to use the new space.
+# Force unmount (if busy)
+umount -f /mnt/data
 
-**Steps to Extend an LVM Partition and Filesystem**
+# Lazy unmount (unmount when not busy)
+umount -l /mnt/data
+```
 
-**Steps 1:** List Block Devices\
-`sudo lsblk`
+### Special Mounts
+```bash
+# Mount ISO image
+mount -o loop image.iso /mnt/iso
 
-**Steps 2:** Open Disk for Partitioning\
-`sudo fdisk /dev/sdb`
+# Mount remote NFS share
+mount -t nfs server:/export /mnt/nfs
 
-**Steps 3:** List Partitions on the Disk\
-`sudo fdisk -l /dev/sdb`
+# Mount CIFS/SMB share
+mount -t cifs //server/share /mnt/smb -o username=user,password=pass
 
-**Steps 4:** Initialize a Partition as a Physical Volume\
-`sudo pvcreate /dev/sdb1`
+# Mount tmpfs (in-memory filesystem)
+mount -t tmpfs -o size=1G tmpfs /mnt/tmp
+```
 
-**Steps 5:** Display Information About Volume Groups\
-`sudo vgdisplay`
+## Persistent Mounts with fstab
 
-**Steps 6:** Display Information About Physical Volumes\
-`sudo pvdisplay`
+### /etc/fstab Format
+```
+# device        mountpoint    fstype    options        dump fsck
+/dev/sdb1      /mnt/data     ext4      defaults       0     0
+UUID=xxxxxxx   /mnt/backup   xfs       defaults       0     0
+```
 
-**Steps 7:** Extend an Existing Volume Group\
-`sudo vgextend vg0 /dev/sdb1`
+### fstab Options
+```bash
+# Common options:
+defaults      # rw,suid,dev,exec,auto,nouser,async
+noatime       # Don't update access times
+nodiratime    # Don't update directory access times
+relatime      # Update access times relative to modify times
+nofail        # Don't report errors if device doesn't exist
+x-systemd.automount  # Automount when accessed
 
-**Steps 8:** Display Information About Logical Volumes\
-`sudo lvdisplay`
+# Example fstab entry:
+UUID=1234-5678 /mnt/data ext4 defaults,noatime,nofail 0 2
+```
 
-**Steps 9:** Display Disk Usage\
-`sudo df -h`
+### Managing fstab
+```bash
+# Test fstab entries
+mount -a
 
-**Steps 10:** Extend a Logical Volume\
-`sudo lvextend -l +100%FREE /dev/mapper/vg0-lv--0`
+# Find UUID of partition
+blkid /dev/sdb1
 
-**Steps 11:** Resize the Filesystem on the Logical Volume\
-`sudo resize2fs /dev/mapper/vg0-lv--0`
+# Add entry to fstab
+echo "UUID=$(blkid -s UUID -o value /dev/sdb1) /mnt/data ext4 defaults 0 2" >> /etc/fstab
 
-**Steps 12:** Display Disk Usage (Again)\
-    `sudo df -h`
+# Backup fstab
+cp /etc/fstab /etc/fstab.backup
+```
 
-**Summary of Steps**
-- View Current Block Devices: Identify current disk and partition layout.
-- Partition the Disk: Use fdisk to partition the new disk (/dev/sdb).
-- Initialize the Partition for LVM: Set up the new partition (/dev/sdb1) as a physical volume.
-- Check LVM Configuration: Ensure current volume groups and physical volumes are correctly set up.
-- Add New PV to VG: Extend the volume group vg0 to include the new physical volume.
-- Extend Logical Volume: Increase the size of an existing logical volume to utilize the new space.
-- Resize Filesystem: Adjust the filesystem on the logical volume to take advantage of the extended space.
-- Verify Changes: Confirm that the disk space has been correctly extended and allocated.
+## Disk Space Management
 
-## Without LVM setting up and mounting a new disk into Ubuntu
+### Checking Disk Usage
+```bash
+# Show disk space usage
+df -h
+df -hT  # Show filesystem types
 
-**Steps 1:** List block devices before partitioning (sudo lsblk).\
-`sudo lsblk`
+# Show inode usage
+df -i
 
-**Steps 2:** Partition the disk (sudo fdisk /dev/sdb).\
-`sudo fdisk /dev/sdb`
+# Show specific filesystem
+df -h /dev/sdb1
 
-**Steps 3:** List block devices after partitioning (sudo lsblk).\
-`sudo lsblk`
+# Detailed disk usage
+du -sh /path/to/directory
+du -h --max-depth=1 /path/to/directory
 
-**Steps 4:** Format the partition (sudo mkfs.ext4 /dev/sdb1).\
-`sudo mkfs.ext4 /dev/sdb1`
+# Find large files
+find / -type f -size +100M -exec ls -lh {} \;
+```
 
-**Steps 5:** Create a mount point (sudo mkdir /mnt/sdb_mount).\
-`sudo mkdir /mnt/sdb_mount`
+### Cleaning Disk Space
+```bash
+# Clean package cache
+apt clean          # Debian/Ubuntu
+yum clean all      # RHEL/CentOS
+dnf clean all      # Fedora
 
-**Steps 6:** Mount the partition (sudo mount /dev/sdb1 /mnt/sdb_mount).\
-`sudo mount /dev/sdb1 /mnt/sdb_mount`
+# Remove old kernels (keep current and one previous)
+apt autoremove --purge  # Debian/Ubuntu
+package-cleanup --oldkernels --count=2  # RHEL/CentOS
 
-**Steps 7:** Verify the mount (df -h /mnt/sdb_mount).\
-`df -h /mnt/sdb_mount`
+# Clean log files
+journalctl --vacuum-size=500M
+find /var/log -name "*.log" -type f -mtime +30 -delete
 
-**Steps 8:** Get filesystem attributes and UUID (Universally Unique Identifier) \
-`sudo blkid /dev/sdb1`
+# Remove temporary files
+rm -rf /tmp/*
+rm -rf /var/tmp/*
+```
 
-**Steps 9:** Add entry to /etc/fstab\
-Edit /etc/fstab using a text editor (sudo vim /etc/fstab) and add the following line at the end.\
-`UUID=c9516c06-7a49-441d-b1cb-6cc3db593217 /mnt/sdb_mount ext4 defaults 0 0`
+## Logical Volume Management (LVM)
 
-**Steps 10:** Mount all entries in /etc/fstab (sudo mount -a).\
-`sudo mount -a`
+### LVM Concepts
+- **Physical Volume (PV)**: Physical disk or partition
+- **Volume Group (VG)**: Collection of physical volumes
+- **Logical Volume (LV)**: Virtual partition created from volume group
 
-**Steps 11:** Verify the mount after adding to /etc/fstab (df -h /mnt/sdb_mount).\
-`df -h /mnt/sdb_mount`
+### LVM Setup
+```bash
+# Create physical volume
+pvcreate /dev/sdb1
+pvcreate /dev/sdc1
 
+# Create volume group
+vgcreate myvg /dev/sdb1 /dev/sdc1
+
+# Create logical volume
+lvcreate -n mylv -L 20G myvg
+
+# Create filesystem on LV
+mkfs.ext4 /dev/myvg/mylv
+
+# Mount LV
+mount /dev/myvg/mylv /mnt/data
+```
+
+### LVM Management
+```bash
+# Extend logical volume
+lvextend -L +10G /dev/myvg/mylv
+resize2fs /dev/myvg/mylv  # For ext2/3/4
+xfs_growfs /mnt/data      # For XFS
+
+# Reduce logical volume (unmount first)
+umount /mnt/data
+e2fsck -f /dev/myvg/mylv
+resize2fs /dev/myvg/mylv 15G
+lvreduce -L 15G /dev/myvg/mylv
+mount /dev/myvg/mylv /mnt/data
+
+# Add physical volume to VG
+vgextend myvg /dev/sdd1
+
+# Remove physical volume from VG
+pvmove /dev/sdb1  # Move data off first
+vgreduce myvg /dev/sdb1
+
+# Display LVM information
+pvdisplay
+vgdisplay
+lvdisplay
+
+# Create snapshot
+lvcreate -s -n snap01 -L 5G /dev/myvg/mylv
+
+# Restore from snapshot
+umount /mnt/data
+lvconvert --merge /dev/myvg/snap01
+mount /dev/myvg/mylv /mnt/data
+```
+
+## RAID Configuration
+
+### Software RAID with mdadm
+```bash
+# Create RAID 1 array
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
+
+# Create RAID 5 array
+mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
+
+# Create filesystem
+mkfs.ext4 /dev/md0
+
+# Mount array
+mount /dev/md0 /mnt/raid
+
+# Check array status
+cat /proc/mdstat
+mdadm --detail /dev/md0
+
+# Add spare disk
+mdadm --add /dev/md0 /dev/sde1
+
+# Remove failed disk
+mdadm --remove /dev/md0 /dev/sdb1
+
+# Stop array
+mdadm --stop /dev/md0
+
+# Assemble array
+mdadm --assemble /dev/md0 /dev/sdb1 /dev/sdc1
+```
+
+### RAID Monitoring
+```bash
+# Check RAID status
+mdadm --detail --scan
+mdadm --examine /dev/sdb1
+
+# Monitor RAID health
+watch cat /proc/mdstat
+
+# Email alerts on failures
+echo "MAILADDR admin@example.com" >> /etc/mdadm/mdadm.conf
+
+# Save RAID configuration
+mdadm --detail --scan > /etc/mdadm/mdadm.conf
+```
+
+## Disk Performance Monitoring
+
+### I/O Monitoring Tools
+```bash
+# Real-time I/O monitoring
+iostat -x 2
+
+# Process I/O monitoring
+iotop
+
+# Disk activity statistics
+vmstat -d
+
+# Block device I/O
+blktrace /dev/sda
+
+# Measure read speed
+hdparm -Tt /dev/sda
+
+# Measure write speed
+dd if=/dev/zero of=/tmp/test bs=1G count=1 oflag=direct
+
+# Check I/O scheduler
+cat /sys/block/sda/queue/scheduler
+
+# Change I/O scheduler
+echo deadline > /sys/block/sda/queue/scheduler
+```
+
+### Performance Optimization
+```bash
+# Mount options for performance
+mount -o noatime,nodiratime,data=writeback /dev/sdb1 /mnt/data
+
+# Filesystem tuning
+tune2fs -o journal_data_writeback /dev/sdb1  # ext4
+tune2fs -E stripe-width=64 /dev/sdb1         # For RAID
+
+# SSD optimization
+echo noop > /sys/block/sda/queue/scheduler   # For SSDs
+```
+
+## Troubleshooting and Recovery
+
+### Common Issues
+```bash
+# Filesystem check
+fsck /dev/sdb1
+fsck -y /dev/sdb1  # Auto-repair
+
+# Check disk for bad sectors
+badblocks -v /dev/sdb1
+
+# Repair corrupted filesystem
+xfs_repair /dev/sdb1  # XFS
+btrfs check --repair /dev/sdb1  # Btrfs (use with caution)
+
+# Recover deleted partition
+testdisk /dev/sdb
+
+# Rescue data from failing disk
+ddrescue /dev/sdb /dev/sdc mapfile.log
+
+# Check disk health
+smartctl -a /dev/sda
+smartctl -t short /dev/sda  # Run short test
+```
+
+### Emergency Recovery
+```bash
+# Boot from live CD/USB and mount root filesystem
+mkdir /mnt/root
+mount /dev/sda1 /mnt/root
+mount /dev/sda2 /mnt/root/home  # If separate home
+mount --bind /dev /mnt/root/dev
+mount --bind /proc /mnt/root/proc
+mount --bind /sys /mnt/root/sys
+chroot /mnt/root
+
+# Reinstall bootloader from chroot
+grub-install /dev/sda
+update-grub  # Debian/Ubuntu
+grub2-mkconfig -o /boot/grub2/grub.cfg  # RHEL/CentOS
+```
+
+## Best Practices
+
+### Disk Management Best Practices
+1. **Regular Backups**: Always have current backups before making changes
+2. **Use GPT**: Prefer GPT over MBR for modern systems
+3. **Separate Partitions**: Use separate partitions for /, /home, /var, /tmp
+4. **Monitor Disk Health**: Regularly check SMART status and disk usage
+5. **Use LVM**: For flexibility in storage management
+6. **RAID for Redundancy**: Use appropriate RAID levels for data protection
+7. **Regular fsck**: Schedule periodic filesystem checks
+8. **Document Configuration**: Keep records of disk layouts and mount options
+
+### Performance Optimization
+1. **Align Partitions**: Ensure proper partition alignment for SSDs and RAID
+2. **Appropriate Filesystem**: Choose filesystem based on use case
+3. **Mount Options**: Use noatime, nodiratime for better performance
+4. **I/O Scheduler**: Choose appropriate scheduler for your workload
+5. **SSD Optimization**: Enable TRIM and use appropriate mount options
+
+### Security Considerations
+1. **Mount Options**: Use nosuid, nodev, noexec where appropriate
+2. **Disk Encryption**: Consider LUKS encryption for sensitive data
+3. **Permissions**: Set appropriate permissions on mount points
+4. **Regular Audits**: Monitor disk usage and access patterns
+
+### Automation Scripts
+```bash
+#!/bin/bash
+# disk-health-check.sh
+
+# Check disk usage
+THRESHOLD=90
+df -h | awk '0+$5 >= '$THRESHOLD' {print "WARNING: "$1" usage is "$5}'
+
+# Check inode usage
+df -i | awk '0+$5 >= '$THRESHOLD' {print "WARNING: "$1" inode usage is "$5}'
+
+# Check disk health
+for disk in $(lsblk -d -o NAME | grep -v NAME); do
+    if smartctl -H /dev/$disk | grep -q "FAILED"; then
+        echo "CRITICAL: /dev/$disk SMART test failed"
+    fi
+done
+
+# Check RAID status
+if which mdadm >/dev/null 2>&1; then
+    if mdadm --detail --scan | grep -q "degraded"; then
+        echo "CRITICAL: RAID array is degraded"
+    fi
+fi
+```
+
+This comprehensive guide covers essential Linux disk management and partitioning techniques, providing system administrators with the knowledge needed to effectively manage storage systems, optimize performance, and ensure data integrity.
