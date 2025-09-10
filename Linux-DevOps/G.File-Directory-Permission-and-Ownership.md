@@ -14,7 +14,7 @@
 
 Linux is a multi-user system where file permissions determine who can access files and directories and what operations they can perform. The permission system ensures security and privacy by controlling access to resources.
 
-
+![Multi-user Environment](https://imgur.com/a/5av0asZ)
 
 ## Understanding Permission Notation
 
@@ -139,6 +139,7 @@ ACLs provide more granular permission control beyond standard user/group/others.
 ```bash
 getfacl file.txt
 ```
+![image](https://imgur.com/7wozoT8)
 
 ### Set ACLs
 ```bash
@@ -248,4 +249,3 @@ ls -ld parent_directory
 # Check ACLs if permissions aren't as expected
 getfacl filename
 ```
-
