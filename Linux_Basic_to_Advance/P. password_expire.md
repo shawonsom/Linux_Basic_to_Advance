@@ -1,4 +1,4 @@
-I'll help you set a password expiration policy for user `testuser` so the password expires after 30 days.
+I'll help you set a password expiration policy for user `testuser` so the password expires after 20 days.
 
 ## 1. Check Current Password Aging Settings
 
