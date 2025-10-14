@@ -123,6 +123,17 @@ dnf history
 # 10. Install a local .rpm file and resolve its dependencies
 sudo dnf install /path/to/package.rpm
 ```
+ Install Downloaded Packages Offline
+bash
+# Install single RPM package
+sudo rpm -ivh package-name.rpm
+
+# Install multiple RPM packages
+sudo rpm -ivh *.rpm
+
+# Install with dependencies (if all packages are in same directory)
+sudo dnf localinstall *.rpm
+
 
 ## Arch Linux (Pacman)
 
