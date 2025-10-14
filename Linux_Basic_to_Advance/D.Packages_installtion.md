@@ -124,7 +124,7 @@ dnf history
 sudo dnf install /path/to/package.rpm
 ```
  Install Downloaded Packages Offline
-bash
+```bash
 # Install single RPM package
 sudo rpm -ivh package-name.rpm
 
@@ -133,7 +133,7 @@ sudo rpm -ivh *.rpm
 
 # Install with dependencies (if all packages are in same directory)
 sudo dnf localinstall *.rpm
-
+```
 
 ## Arch Linux (Pacman)
 
