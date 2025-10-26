@@ -85,5 +85,13 @@ yum remove <pkg>    # Remove package (YUM)
 dnf remove <pkg>    # Remove package (DNF)
 ```
 
+### Hide the bash username@hostname:
+```bash
+unset PS1                # hide interactive Bash session
+export PS1="test--> "    # set what you want: example shows (test_server-->   )
+PS1='[\u@\h \W]\$ '      # bring back the bash
+```
+
+
 > **Note**: Most modern distributions recommend using `apt` instead of `apt-get` for interactive use, and `dnf` instead of `yum` for newer RPM-based systems.
 ```
