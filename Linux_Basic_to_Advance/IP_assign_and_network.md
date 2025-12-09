@@ -1,6 +1,6 @@
 
 
-# 🚀1.Setting up the environment (installing both Ubuntu and Redhat)
+# 🚀 Setting up the environment (installing both Ubuntu and Redhat)
 
 ## Networking
 
