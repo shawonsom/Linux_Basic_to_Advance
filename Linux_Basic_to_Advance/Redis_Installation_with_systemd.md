@@ -1,7 +1,5 @@
 # Redis Installation with systemd Service on Linux
 
-## Installation Steps
-
 ### 1. Download and Extract Redis
 ```bash
 wget http://download.redis.io/redis-stable.tar.gz
