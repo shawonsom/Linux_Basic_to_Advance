@@ -133,6 +133,8 @@ sudo rpm -ivh *.rpm
 
 # Install with dependencies (if all packages are in same directory)
 sudo dnf localinstall *.rpm
+
+# i = install, v= verbose, h= human readable progress
 ```
 
 ## Arch Linux (Pacman)
