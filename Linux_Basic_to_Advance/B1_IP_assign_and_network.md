@@ -1,11 +1,10 @@
 
 
-## 🚀1.Setting up the environment (installing both Ubuntu and Redhat)
-# Setting Up Linux Environments: Ubuntu and RedHat
+# 🚀1.Setting up the environment (installing both Ubuntu and Redhat)
 
-### Networking
+## Networking
 
-#### Static IP Configuration - Netplan (Ubuntu/Debian)
+### Static IP Configuration - Netplan (Ubuntu/Debian)
 
 **Netplan Configuration File Location:**
 ```bash
