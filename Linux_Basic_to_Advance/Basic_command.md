@@ -8,6 +8,7 @@
 - **Check OS Version**: `cat /etc/os-release`
 - **Check Kernel Version**: `uname -r`
 - **Check System Architecture**: `uname -m`
+- **Check all information at onece**: `uname -a`
 
 ## System Status
 - **Check System Uptime**: `uptime`
@@ -16,8 +17,10 @@
 
 ## Hardware Information
 - **Check CPU Information**: `lscpu`
-- **Check Memory Usage**: `free -mh`
-- **Check Hardware Information**: `lshw -short`
+- **Check Memory Usage**: `free -h`
+- **Check details RAM**`dmidecode --type memory`
+- **Check Hardware Information short**: `lshw -short`
+- **Check All Hardware Information**: `lshw`
 
 ## Storage Information
 - **Check Disk Usage**: `df -hT`
@@ -37,6 +40,8 @@
 ## Package Management
 - **Check Available Updates**: `apt update`
 
+## Check virtulization Information
+- **check is it bearmetal or on VM**: `systemd-detect-virt`
 ---
 
 # Package Management Comparison
@@ -92,6 +97,4 @@ export PS1="test--> "    # set what you want: example shows (test_server-->   )
 PS1='[\u@\h \W]\$ '      # bring back the bash
 ```
 
-
-> **Note**: Most modern distributions recommend using `apt` instead of `apt-get` for interactive use, and `dnf` instead of `yum` for newer RPM-based systems.
-```
+**Note**: Most modern distributions recommend using `apt` instead of `apt-get` for interactive use, and `dnf` instead of `yum` for newer RPM-based systems.

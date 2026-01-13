@@ -4,16 +4,11 @@ The Linux File System Hierarchy Standard (FSH) defines the directory structure a
 ![{C4921C24-38A2-49CD-8B33-A9AD57E82121}](https://github.com/user-attachments/assets/cd56a6b2-9eb3-499f-a3a8-f9c3600b52c1)
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Basic Commands](#basic-commands)
-3. [File Operations](#file-operations)
-4. [Directory Operations](#directory-operations)
-5. [Permissions and Ownership](#permissions-and-ownership)
-6. [Advanced Operations](#advanced-operations)
-
-## Introduction
-
-In Linux, everything is treated as a file, including hardware devices. Understanding file and directory management is fundamental to working effectively with Linux systems.
+1. [Basic Commands](#basic-commands)
+2. [File Operations](#file-operations)
+3. [Directory Operations](#directory-operations)
+4. [Permissions and Ownership](#permissions-and-ownership)
+5. [Advanced Operations](#advanced-operations)
 
 ## Basic Commands
 
@@ -107,9 +102,6 @@ rmdir emptydirectory
 tree
 tree -d    # Show only directories
 ```
-
-      <img src=https://github.com/user-attachments/assets/356a3442-83ed-4c99-954f-be7692d6ec27 height="300" width="900"/>
-
 ## Permissions and Ownership
 
 ### chmod - Change File Permissions
@@ -194,7 +186,3 @@ du -h --max-depth=1          # Size of first-level subdirectories
 3. Double-check paths before executing destructive commands
 4. Use relative paths for files in current directory
 5. Use absolute paths for scripts and automation
-
-## Conclusion
-
-Mastering file and directory management is essential for Linux proficiency. Practice these commands regularly to build muscle memory and improve your workflow efficiency.
