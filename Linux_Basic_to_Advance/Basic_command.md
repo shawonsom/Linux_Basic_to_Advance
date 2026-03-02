@@ -30,6 +30,13 @@
 ## Network Information
 - **Check Network Interface**: `ip a` or `ip addr show`
 - **Check IP Routing Table**: `ip route show`
+- **Check ping loss**: `mtr google.com`
+- **Check connectivity & response time**: `ping google.com`
+- **Trace the path to the server**: `traceroute google.com`
+- **Test if a port is open**: `telnet example.com 80`
+- **Show active connections**: `netstat -tuln`
+- **Check SSH port access**: `nc -zv example.com 22`
+- **Real-time bandwidth usage**: `sudo iftop`  OR `nload`
 
 ## System Management
 - **Check Running Services**: `systemctl list-units --type=service`
