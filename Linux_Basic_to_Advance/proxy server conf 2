@@ -1,0 +1,65 @@
+# ---------------------------------------------------------
+# AUTHENTICATION
+# ---------------------------------------------------------
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwords
+auth_param basic children 5
+auth_param basic realm Squid Proxy Server
+auth_param basic credentialsttl 2 hours
+acl authenticated_users proxy_auth REQUIRED
+
+# ---------------------------------------------------------
+# ACL DEFINITIONS
+# ---------------------------------------------------------
+acl SSL_ports port 443
+acl Safe_ports port 80 443 137 138 139 445
+acl CONNECT method CONNECT
+
+# IP-based ACLs
+acl vip_user src 192.168.1.50
+acl local_net src 192.168.1.0/24
+
+# Website blocking ACL
+acl blocked_sites dstdomain .facebook.com .youtube.com .instagram.com
+
+# ---------------------------------------------------------
+# HTTP ACCESS RULES (Order is Critical)
+# ---------------------------------------------------------
+
+# 1. Deny ports that aren't safe
+http_access deny !Safe_ports
+http_access deny CONNECT !SSL_ports
+
+# 2. VIP bypass: Allow this IP to see blocked sites WITHOUT auth (or move below auth)
+http_access allow vip_user blocked_sites
+
+# 3. Force authentication for everyone else
+http_access deny !authenticated_users
+
+# 4. Deny blocked sites for authenticated users (except VIP)
+http_access deny blocked_sites
+
+# 5. Allow all other traffic for authenticated users
+http_access allow authenticated_users
+http_access allow local_net
+
+# Final catch-all
+http_access deny all
+
+# ---------------------------------------------------------
+# BANDWIDTH LIMITS (Delay Pools)
+# ---------------------------------------------------------
+delay_pools 1
+delay_class 1 1
+# Limit to 512 KB/s (524288 bytes/s)
+delay_parameters 1 524288/524288
+delay_access 1 allow authenticated_users
+
+# ---------------------------------------------------------
+# GENERAL SETTINGS
+# ---------------------------------------------------------
+http_port 3128
+coredump_dir /var/spool/squid
+refresh_pattern ^ftp:           1440    20%     10080
+refresh_pattern ^gopher:        1440    0%      1440
+refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
+refresh_pattern .               0       20%     4320
