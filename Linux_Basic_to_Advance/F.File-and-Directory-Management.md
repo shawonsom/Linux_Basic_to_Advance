@@ -161,7 +161,10 @@ tar -cvf archive.tar files/       # Create tar archive
 tar -xvf archive.tar              # Extract tar archive
 tar -czvf archive.tar.gz files/   # Create compressed tar archive
 ```
-
+# Decompress and re-compress with high compression
+```bash
+tar -I 'xz -9' -cvf folder.tar.xz folder/
+```
 ### zip/unzip - Compression Utilities
 ```bash
 zip archive.zip file1.txt file2.txt
